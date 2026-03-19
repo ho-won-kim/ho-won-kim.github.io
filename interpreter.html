@@ -178,6 +178,61 @@
       transform: scaleX(1);
     }
 
+    /* ── CV Link Button (fixed top-right) ───────────────── */
+    .cv-link {
+      position: fixed;
+      top: 24px;
+      right: 32px;
+      z-index: 1001;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      background: rgba(8, 8, 15, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(196, 145, 58, 0.22);
+      border-radius: 100px;
+      padding: 8px 16px 8px 14px;
+      transition:
+        color var(--ease-out) 250ms,
+        border-color var(--ease-out) 250ms,
+        box-shadow var(--ease-out) 250ms,
+        transform var(--ease-out) 250ms;
+      text-decoration: none;
+    }
+
+    .cv-link::before {
+      content: '←';
+      font-size: 13px;
+      transition: transform var(--ease-out) 250ms;
+      display: inline-block;
+    }
+
+    .cv-link:hover {
+      color: var(--gold);
+      border-color: rgba(196, 145, 58, 0.5);
+      box-shadow: 0 4px 20px rgba(196, 145, 58, 0.12);
+      transform: translateX(-2px);
+    }
+
+    .cv-link:hover::before {
+      transform: translateX(-3px);
+    }
+
+    @media (max-width: 640px) {
+      .cv-link {
+        top: auto;
+        bottom: 24px;
+        right: 24px;
+        font-size: 11px;
+      }
+    }
+
     /* ── Nav Language Switcher ──────────────────────────── */
     .nav-lang-switcher {
       display: flex;
@@ -1291,6 +1346,9 @@
 </head>
 <body>
 
+  <!-- ── CV Link ──────────────────────────────────────────── -->
+  <a href="index.html" class="cv-link" data-i18n="cv-link" aria-label="Retour au CV">Voir mon CV</a>
+
   <!-- ── Floating Nav ─────────────────────────────────────── -->
   <nav class="nav" id="mainNav" aria-label="Navigation principale">
     <span class="nav-logo">HWK</span>
@@ -1635,7 +1693,8 @@
         'cta-title':     'Votre prochain interprète<br><em>freelance</em>',
         'cta-sub':       'Disponible pour missions ponctuelles, événements récurrents et projets audiovisuels. Réponse garantie sous 24h.',
         'cta-btn':       'Écrire un message',
-        'footer-sub':    'Interprète de conférence &amp; Traducteur audiovisuel'
+        'footer-sub':    'Interprète de conférence &amp; Traducteur audiovisuel',
+        'cv-link':       'Voir mon CV'
       },
       en: {
         'page-title':    'Ho Won KIM — Interpreter & Translator',
@@ -1668,7 +1727,8 @@
         'cta-title':     'Your next freelance<br><em>interpreter</em>',
         'cta-sub':       'Available for one-off assignments, recurring events and audiovisual projects. Response guaranteed within 24 h.',
         'cta-btn':       'Send a message',
-        'footer-sub':    'Conference Interpreter &amp; Audiovisual Translator'
+        'footer-sub':    'Conference Interpreter &amp; Audiovisual Translator',
+        'cv-link':       'View my CV'
       },
       ko: {
         'page-title':    'Ho Won KIM — 통번역사',
@@ -1701,7 +1761,8 @@
         'cta-title':     '당신의 다음<br><em>프리랜서 통번역사</em>',
         'cta-sub':       '단발 의뢰, 정기 행사, 영상 번역 프로젝트 등 모든 상황에서 24시간 내 응답을 보장합니다.',
         'cta-btn':       '메시지 보내기',
-        'footer-sub':    '회의 통역사 &amp; 영상 번역사'
+        'footer-sub':    '회의 통역사 &amp; 영상 번역사',
+        'cv-link':       '이력서 보기'
       }
     };
 
