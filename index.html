@@ -6,7 +6,19 @@
   <title>Ho Won KIM — Linguiste &amp; Doctorant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Nanum+Myeongjo:wght@400;700&family=Noto+Serif+KR:wght@400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    @font-face {
+      font-family: 'GmarketSans';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+      font-weight: 500; font-style: normal;
+    }
+    @font-face {
+      font-family: 'GmarketSans';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+      font-weight: 700; font-style: normal;
+    }
+  </style>
   <style>
     :root {
       --navy:     #152340;
@@ -117,8 +129,8 @@
     .lang-btn:hover { color: rgba(255,255,255,0.75); }
     .lang-btn.active {
       color: #fff;
-      background: rgba(75,123,229,0.25);
-      border-color: rgba(75,123,229,0.4);
+      background: rgba(196,145,58,0.22);
+      border-color: rgba(196,145,58,0.42);
     }
     /* ══════════════════════════════
        LAYOUT SHELL
@@ -214,9 +226,9 @@
     }
     .hero-kicker::before { content: ''; width: 18px; height: 1px; background: var(--blue); flex-shrink: 0; }
     .hero-title {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Playfair Display', 'Instrument Serif', serif;
       font-size: clamp(1.7rem, 3.5vw, 2.6rem);
-      font-style: normal; color: #fff; line-height: 1.15; margin-bottom: 18px;
+      font-weight: 400; font-style: normal; color: #fff; line-height: 1.15; margin-bottom: 18px;
     }
     .hero-bio { font-size: 0.84rem; font-weight: 300; color: rgba(255,255,255,0.92); line-height: 1.9; max-width: 580px; margin-bottom: 24px; }
     .hero-bio strong { color: rgba(255,255,255,0.95); font-weight: 500; }
@@ -428,6 +440,330 @@
     @media (max-width: 640px) { .edu-compact-grid { grid-template-columns: 1fr; } }
     .credits-note { font-size: 0.74rem; color: var(--ink-3); margin-top: 14px; font-style: italic; line-height: 1.6; }
     html[lang="ko"] .credits-note { display: none; }
+
+    /* ════════════════════════════════════════════════════
+       TRANSLATION MODE — PREMIUM VISUAL REDESIGN
+    ════════════════════════════════════════════════════ */
+
+    /* Gold accent palette */
+    :root {
+      --gold:    #C4913A;
+      --gold-dim: rgba(196,145,58,0.12);
+      --gold-bd:  rgba(196,145,58,0.30);
+    }
+
+    /* ── TRANSLATION HERO V2 ── */
+    .translation-hero-v2 {
+      background: linear-gradient(150deg, #080f1e 0%, #0f1f38 40%, #162846 100%);
+      padding: 76px 52px 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Decorative orbital rings */
+    .th2-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(196,145,58,0.09);
+      pointer-events: none;
+    }
+    .th2-ring-1 { width: 560px; height: 560px; top: -200px; right: -180px; }
+    .th2-ring-2 { width: 340px; height: 340px; top: -100px; right: -80px; border-color: rgba(196,145,58,0.14); }
+    .th2-ring-3 { width: 160px; height: 160px; top: 60px; right: 100px; border-color: rgba(196,145,58,0.08); }
+
+    /* 2-column hero layout */
+    .th2-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .th2-col-right { padding-top: 8px; }
+    .th2-bridge {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .th2-col-right .th2-lang {
+      flex: 1;
+      padding: 18px 14px; /* tighter horizontal padding for narrower column */
+    }
+    .th2-lang-name, .th2-lang-badge { white-space: nowrap; }
+    .th2-col-right .th2-pillars {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+    .th2-col-right .th2-pillar { padding: 16px 18px; }
+    @media (max-width: 860px) {
+      .th2-layout { grid-template-columns: 1fr; gap: 36px; }
+      .th2-col-right .th2-lang { padding: 20px 32px; }
+      .th2-col-right .th2-pillars { grid-template-columns: repeat(3,1fr); }
+    }
+
+    .th2-eyebrow {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 22px; display: flex; align-items: center; gap: 10px;
+    }
+    .th2-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .th2-title {
+      font-family: 'Playfair Display', 'Instrument Serif', serif;
+      font-weight: 400;
+      font-size: clamp(2.1rem, 4.8vw, 3.4rem);
+      color: #fff; line-height: 1.08; margin-bottom: 36px; max-width: 100%;
+      letter-spacing: -0.01em;
+    }
+
+    /* Language bridge */
+    .th2-bridge {
+      display: flex; align-items: stretch;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px; overflow: hidden;
+      width: fit-content; margin-bottom: 48px;
+    }
+    .th2-lang {
+      padding: 20px 32px;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      position: relative;
+    }
+    .th2-lang + .th2-lang { border-left: 1px solid rgba(255,255,255,0.08); }
+    .th2-lang-code {
+      font-size: 1.45rem; font-weight: 800; color: #fff; letter-spacing: 0.04em; line-height: 1;
+    }
+    .th2-lang-name {
+      font-size: 0.58rem; font-weight: 400;
+      color: rgba(255,255,255,0.36); letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .th2-lang-badge {
+      font-size: 0.52rem; font-weight: 700; letter-spacing: 0.08em;
+      color: var(--gold); background: rgba(196,145,58,0.14);
+      border: 1px solid rgba(196,145,58,0.28);
+      border-radius: 3px; padding: 2px 8px; margin-top: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Stats row */
+    .th2-stats {
+      display: flex; align-items: flex-start; gap: 0;
+      margin-bottom: 40px;
+    }
+    .th2-stat {
+      display: flex; flex-direction: column; gap: 5px;
+      padding-right: 30px; margin-right: 30px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .th2-stat:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+    .th2-stat-n {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.6rem; font-weight: 400; color: #fff; line-height: 1;
+    }
+    .th2-stat-l {
+      font-size: 0.64rem; color: rgba(255,255,255,0.38);
+      letter-spacing: 0.03em; max-width: 88px; line-height: 1.45;
+    }
+
+    /* Service pillars */
+    .th2-pillars {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
+      margin-bottom: 38px;
+    }
+    .th2-pillar {
+      background: rgba(255,255,255,0.034);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 22px 20px;
+      transition: border-color .25s, background .25s, box-shadow .25s;
+      cursor: default;
+    }
+    .th2-pillar:hover {
+      background: rgba(196,145,58,0.08);
+      border-color: rgba(196,145,58,0.32);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.30);
+    }
+    .th2-pillar-head {
+      display: flex; align-items: baseline; gap: 9px; margin-bottom: 7px;
+    }
+    .th2-pillar-num {
+      font-size: 0.52rem; font-weight: 700; letter-spacing: 0.14em;
+      color: var(--gold); opacity: 0.75; flex-shrink: 0;
+    }
+    .th2-pillar-title {
+      font-size: 1.0rem; font-weight: 600; color: rgba(255,255,255,0.92);
+      line-height: 1.3; word-break: keep-all;
+    }
+    .th2-pillar-sub {
+      font-size: 0.67rem; color: rgba(255,255,255,0.36); line-height: 1.6;
+    }
+
+    /* CTA buttons */
+    .th2-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .th2-cta-primary {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--gold); color: #fff;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+      padding: 13px 24px; border-radius: 8px;
+      box-shadow: 0 4px 22px rgba(196,145,58,0.38);
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .th2-cta-primary:hover { background: #b37e2c; transform: translateY(-1px); box-shadow: 0 8px 30px rgba(196,145,58,0.45); }
+    .th2-cta-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.50); font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.03em; padding: 13px 20px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: color .2s, border-color .2s;
+    }
+    .th2-cta-secondary:hover { color: rgba(255,255,255,0.88); border-color: rgba(255,255,255,0.35); }
+
+    /* ── KOREAN TYPOGRAPHY ── */
+    html[lang="ko"] .th2-title {
+      font-family: 'Gowun Batang', 'Noto Serif KR', serif;
+      /* Restore original large size — looks perfect at full viewport */
+      font-size: clamp(2.1rem, 4.8vw, 3.4rem);
+      letter-spacing: 0.03em;
+      word-break: keep-all;
+    }
+    /* At mid-range viewports (2-col layout but narrower column): scale proportionally
+       so the <br/>-intended line breaks are preserved without extra word wraps */
+    @media (max-width: 1190px) and (min-width: 860px) {
+      html[lang="ko"] .th2-title {
+        font-size: clamp(1.7rem, 3.8vw, 3.4rem);
+      }
+      /* FR/EN: longer text so shrink more aggressively */
+      html:not([lang="ko"]) .th2-title {
+        font-size: clamp(1.4rem, 3.2vw, 3.4rem);
+      }
+    }
+    html[lang="ko"] h1, html[lang="ko"] h2, html[lang="ko"] h3 { word-break: keep-all; }
+    html[lang="ko"] p, html[lang="ko"] .tl-title, html[lang="ko"] .tl-sub, html[lang="ko"] .tl-detail { word-break: keep-all; }
+    /* Gowun Batang for Korean research hero title */
+    html[lang="ko"] .hero-title {
+      font-family: 'Gowun Batang', serif;
+      font-weight: 400;
+    }
+    /* Noto Serif KR for Korean research-mode section titles */
+    html[lang="ko"] .research-only .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    /* GmarketSans for Korean translation-mode section titles, pillar & CTA headings only */
+    html[lang="ko"] .translation-only .section-title,
+    html[lang="ko"] .cta-title,
+    html[lang="ko"] .th2-pillar-title {
+      font-family: 'GmarketSans', sans-serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── TRANSLATION MODE ACCENT OVERRIDES ── */
+    body.mode-translation .sb-tags.translation-only { display: flex; }
+    body.mode-translation .section-label { color: var(--gold); }
+    body.mode-translation .tl-yr { color: var(--gold); }
+    body.mode-translation .pub-yr { color: var(--gold); }
+    body.mode-translation .exp-group-head::before { background: var(--gold); }
+    body.mode-translation .tl-note { border-left-color: var(--gold); background: rgba(196,145,58,0.06); }
+    body.mode-translation .pub-card:hover { border-left-color: var(--gold); box-shadow: 0 4px 16px rgba(196,145,58,0.09); }
+    body.mode-translation .cv-btn.active {
+      color: #fff;
+      background: rgba(196,145,58,0.26);
+      border-color: rgba(196,145,58,0.48);
+    }
+    body.mode-translation .lang-btn.active {
+      background: rgba(196,145,58,0.22);
+      border-color: rgba(196,145,58,0.42);
+    }
+    body.mode-translation .tl-item:first-child { border-top: 1px solid var(--border); }
+
+    /* ── SECTION INTRO CARDS ── */
+    .section-intro {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 20px; margin-bottom: 24px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    body.mode-translation .section-intro { border-left: 3px solid var(--gold); }
+    .si-icon { font-size: 1.3rem; flex-shrink: 0; padding-top: 1px; }
+    .si-text { font-size: 0.78rem; color: var(--ink-2); line-height: 1.68; }
+    .si-text strong { color: var(--ink); font-weight: 600; }
+
+    /* ── CREDITS HEADER ── */
+    .credits-header {
+      font-size: 0.76rem; color: var(--ink-2); line-height: 1.72;
+      margin-bottom: 18px; padding: 14px 18px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    body.mode-translation .credits-header { border-left: 3px solid var(--gold); }
+    html[lang="ko"] .credits-header { display: none; }
+
+    /* Improved credit-row hover */
+    .credit-row {
+      transition: background .15s;
+      border-radius: 4px;
+      margin: 0 -6px;
+      padding-left: 6px; padding-right: 6px;
+    }
+    .credit-row:hover { background: rgba(196,145,58,0.06); }
+
+    /* ── CONTACT CTA SECTION ── */
+    .cta-section {
+      background: linear-gradient(150deg, #080f1e 0%, #0f1f38 50%, #162846 100%);
+      padding: 80px 52px 72px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      position: relative; overflow: hidden;
+    }
+    .cta-section .th2-ring { border-color: rgba(196,145,58,0.07); }
+    .cta-section .th2-ring-1 { top: auto; bottom: -220px; right: auto; left: -160px; width: 500px; height: 500px; }
+    .cta-section .th2-ring-2 { top: auto; bottom: -100px; right: auto; left: -60px; width: 280px; height: 280px; border-color: rgba(196,145,58,0.11); }
+    .cta-inner { position: relative; max-width: 560px; }
+    .cta-eyebrow {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+    }
+    .cta-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+    .cta-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+      color: #fff; line-height: 1.1; margin-bottom: 16px;
+    }
+    .cta-sub {
+      font-size: 0.84rem; color: rgba(255,255,255,0.48); line-height: 1.88;
+      margin-bottom: 32px; max-width: 420px;
+    }
+    .cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .cta-email-link {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--gold); color: #fff;
+      font-size: 0.80rem; font-weight: 600; letter-spacing: 0.04em;
+      padding: 14px 26px; border-radius: 8px;
+      box-shadow: 0 6px 28px rgba(196,145,58,0.34);
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .cta-email-link:hover { background: #b37e2c; transform: translateY(-1px); box-shadow: 0 10px 36px rgba(196,145,58,0.44); }
+    .cta-email-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .cta-email-addr {
+      font-size: 0.74rem; color: rgba(255,255,255,0.28); letter-spacing: 0.02em;
+      font-weight: 400;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 760px) {
+      .translation-hero-v2 { padding: 48px 24px 44px; }
+      .th2-bridge { width: 100%; border-radius: 10px; }
+      .th2-lang { padding: 16px 20px; flex: 1; }
+      .th2-pillars { grid-template-columns: 1fr; gap: 10px; }
+      .th2-stats { flex-wrap: wrap; gap: 24px; }
+      .th2-stat { border-right: none; padding-right: 0; margin-right: 0; }
+      .th2-cta-secondary { display: none; }
+      .cta-section { padding: 52px 24px 56px; }
+      .cta-email-addr { display: none; }
+    }
+    @media (max-width: 520px) {
+      .th2-stats { gap: 16px; }
+      .th2-stat-n { font-size: 2.0rem; }
+    }
   </style>
 </head>
 <body>
@@ -446,7 +782,7 @@
         <a href="#pro-commercial" class="translation-only" data-i18n="nav-pro-commercial">Commercial</a>
         <a href="#pro-media" class="translation-only" data-i18n="nav-pro-media">Audiovisuel</a>
         <a href="#pro-autres" class="translation-only" data-i18n="nav-pro-autres">Autres missions</a>
-        <a href="#competences" data-i18n="nav-competences">Compétences</a>
+        <a href="#competences" class="research-only" data-i18n="nav-competences">Compétences</a>
         <a href="#financements" class="research-only" data-i18n="nav-financements">Financements</a>
       </nav>
       <div class="cv-switcher">
@@ -472,12 +808,17 @@
         <div class="sb-name" data-i18n-html="sb-name">Ho Won<em>KIM</em></div>
         <div class="sb-role" data-i18n-html="sb-role">Doctorant en Sciences<br/>du Langage<br/>Sorbonne Nouvelle · Paris</div>
       </div>
-      <div class="sb-tags">
+      <div class="sb-tags research-only">
         <span class="sb-tag" data-i18n="sb-tag-1">Analyse du discours</span>
         <span class="sb-tag" data-i18n="sb-tag-2">Sémantique lexicale</span>
         <span class="sb-tag" data-i18n="sb-tag-3">Pragmatique</span>
         <span class="sb-tag" data-i18n="sb-tag-4">Discours environnemental</span>
         <span class="sb-tag" data-i18n="sb-tag-5">Français · Anglais · Coréen</span>
+      </div>
+      <div class="sb-tags translation-only">
+        <span class="sb-tag" data-i18n="sb-tag-tr-1">Diplomatique & public</span>
+        <span class="sb-tag" data-i18n="sb-tag-tr-2">Commercial & événementiel</span>
+        <span class="sb-tag" data-i18n="sb-tag-tr-3">Médias & audiovisuel</span>
       </div>
       <div class="sb-contact">
         <a href="mailto:ho-won.kim@sorbonne-nouvelle.fr" class="sb-contact-item research-only">
@@ -794,26 +1135,93 @@
       </section>
 
 
-      <!-- ══ TRANSLATION HERO (translation mode only) ══ -->
-      <div class="translation-hero translation-only appear">
-        <div class="th-kicker" data-i18n="th-kicker">Interprète &amp; Traducteur</div>
-        <div class="th-title" data-i18n-html="th-title">Passeur de langues,<br/>passeur de sens</div>
-        <div class="th-langs">
-          <span class="th-lang">Français</span>
-          <span class="th-sep">·</span>
-          <span class="th-lang">English</span>
-          <span class="th-sep">·</span>
-          <span class="th-lang">한국어</span>
-        </div>
-        <p class="th-bio" data-i18n-html="th-bio">
-          Interprète professionnel en <strong>conférence et liaison</strong>, traducteur audiovisuel
-          <strong>français · anglais · coréen</strong>. Expérience dans les secteurs
-          <strong>diplomatique</strong>, <strong>commercial</strong> et <strong>médiatique</strong>.
-        </p>
-        <div class="th-domains">
-          <div class="th-domain" data-i18n="th-d1">Interprétation publique &amp; diplomatique</div>
-          <div class="th-domain" data-i18n="th-d2">Interprétation commerciale</div>
-          <div class="th-domain" data-i18n="th-d3">Traduction médiatique &amp; de contenus</div>
+      <!-- ══ TRANSLATION HERO V2 (translation mode only) ══ -->
+      <div class="translation-hero-v2 translation-only appear">
+        <!-- Decorative orbital rings -->
+        <div class="th2-ring th2-ring-1" aria-hidden="true"></div>
+        <div class="th2-ring th2-ring-2" aria-hidden="true"></div>
+        <div class="th2-ring th2-ring-3" aria-hidden="true"></div>
+
+        <div class="th2-layout">
+          <!-- Left column: eyebrow / title / stats / CTA -->
+          <div class="th2-col-left">
+            <div class="th2-eyebrow" data-i18n="th-kicker">Interprète &amp; Traducteur</div>
+            <h1 class="th2-title" data-i18n-html="th-title">Relier les langues,<br/>rapprocher les esprits</h1>
+
+            <!-- Stats -->
+            <div class="th2-stats">
+              <div class="th2-stat">
+                <span class="th2-stat-n">10+</span>
+                <span class="th2-stat-l" data-i18n="th2-stat-1-l">ans d'expérience</span>
+              </div>
+              <div class="th2-stat">
+                <span class="th2-stat-n">30+</span>
+                <span class="th2-stat-l" data-i18n="th2-stat-2-l">missions réalisées</span>
+              </div>
+              <div class="th2-stat">
+                <span class="th2-stat-n">16</span>
+                <span class="th2-stat-l" data-i18n="th2-stat-3-l">crédits TV nationales</span>
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="th2-actions">
+              <a href="mailto:howon.kim.fr@gmail.com" class="th2-cta-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span data-i18n="th2-cta">Me contacter</span>
+              </a>
+              <a href="#pro-public" class="th2-cta-secondary">
+                <span data-i18n="th2-cta-cv">Voir les expériences →</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right column: language bridge + service pillars -->
+          <div class="th2-col-right">
+            <!-- Language bridge -->
+            <div class="th2-bridge">
+              <div class="th2-lang">
+                <span class="th2-lang-code">FR</span>
+                <span class="th2-lang-name" data-i18n="lang-fr">Français</span>
+                <span class="th2-lang-badge" data-i18n="th2-level-c2">C2</span>
+              </div>
+              <div class="th2-lang">
+                <span class="th2-lang-code">EN</span>
+                <span class="th2-lang-name" data-i18n="lang-en">English</span>
+                <span class="th2-lang-badge" data-i18n="th2-level-c2">C2</span>
+              </div>
+              <div class="th2-lang">
+                <span class="th2-lang-code">한</span>
+                <span class="th2-lang-name" data-i18n="lang-ko">한국어</span>
+                <span class="th2-lang-badge" data-i18n="sk-native">Natif</span>
+              </div>
+            </div>
+
+            <!-- Service pillars -->
+            <div class="th2-pillars">
+              <div class="th2-pillar">
+                <div class="th2-pillar-head">
+                  <div class="th2-pillar-num">01</div>
+                  <div class="th2-pillar-title" data-i18n="th2-p1-title">Diplomatique &amp; public</div>
+                </div>
+                <div class="th2-pillar-sub" data-i18n="th2-p1-sub">Organismes publics, délégations officielles, tribunal central de district de Séoul, défense nationale</div>
+              </div>
+              <div class="th2-pillar">
+                <div class="th2-pillar-head">
+                  <div class="th2-pillar-num">02</div>
+                  <div class="th2-pillar-title" data-i18n="th2-p2-title">Commercial &amp; événementiel</div>
+                </div>
+                <div class="th2-pillar-sub" data-i18n="th2-p2-sub">VivaTech Paris, Fashion Week, K-Expo, France Hydrogène</div>
+              </div>
+              <div class="th2-pillar">
+                <div class="th2-pillar-head">
+                  <div class="th2-pillar-num">03</div>
+                  <div class="th2-pillar-title" data-i18n="th2-p3-title">Médias &amp; audiovisuel</div>
+                </div>
+                <div class="th2-pillar-sub" data-i18n="th2-p3-sub">KBS · SBS · MBC · JTBC · EBS · OBS — 2015–2025</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -845,9 +1253,21 @@
       <section id="pro-public" class="section translation-only">
         <div class="section-head appear">
           <div class="section-label" data-i18n="pro-pub-label">Interprétation</div>
-          <h2 class="section-title" data-i18n-html="pro-pub-title">Interprétation <em>publique &amp; diplomatique</em></h2>
+          <h2 class="section-title" data-i18n-html="pro-pub-title">Interprétation <em>publique et diplomatique</em></h2>
+        </div>
+        <div class="section-intro appear">
+          <div class="si-icon">🏛️</div>
+          <div class="si-text" data-i18n-html="si-pub-text"><strong>Gouvernements, agences, tribunaux.</strong> Interprétation de liaison et de conférence pour des missions à haute responsabilité institutionnelle — discrétion et précision terminologique garanties.</div>
         </div>
         <div class="tl appear">
+          <div class="tl-item">
+            <div class="tl-yr">2026 · 01</div>
+            <div>
+              <div class="tl-title" data-i18n-html="pro-0-title">Interprète — Conférence UNESCO « Leadership durable et éducation » <span style="font-weight:300;color:var(--ink-2)">(Coréen–Anglais)</span></div>
+              <div class="tl-sub" data-i18n-html="pro-0-sub">Division de l'Éducation 2030 de l'UNESCO · <em>Dir. Kim Min-jeong</em></div>
+              <div class="tl-detail" data-i18n="pro-0-detail">90 enseignants innovants coréens</div>
+            </div>
+          </div>
           <div class="tl-item">
             <div class="tl-yr">2025 · 09</div>
             <div>
@@ -891,6 +1311,10 @@
         <div class="section-head appear">
           <div class="section-label" data-i18n="pro-com-label">Interprétation</div>
           <h2 class="section-title" data-i18n-html="pro-com-title">Interprétation <em>commerciale</em></h2>
+        </div>
+        <div class="section-intro appear">
+          <div class="si-icon">🤝</div>
+          <div class="si-text" data-i18n-html="si-com-text"><strong>Salons, délégations d'affaires, événements culturels.</strong> Interprétation trilingue au cœur des échanges franco-coréens — tech, énergie, culture, mode.</div>
         </div>
         <div class="tl appear">
           <div class="tl-item">
@@ -945,13 +1369,13 @@
           <h2 class="section-title" data-i18n-html="pro-med-title">Traduction <em>audiovisuelle</em></h2>
         </div>
         <div class="appear">
-          <p class="credits-note" data-i18n="credits-note"></p>
+          <div class="credits-header" data-i18n="credits-note"></div>
           <div class="credits-list">
             <div class="credit-row"><span class="credit-yr">2015 · 02</span><span class="credit-ch ch-kbs">KBS</span><span class="credit-prog">시사기획 창</span><span class="credit-ep"><a href="https://news.kbs.co.kr/news/view.do?ncd=3020483" target="_blank">— 직장 내 괴롭힘 보고서, 인격 없는 일터</a></span></div>
             <div class="credit-row"><span class="credit-yr">2016 · 04</span><span class="credit-ch ch-kbs">KBS</span><span class="credit-prog">미디어 인사이드</span><span class="credit-ep"><a href="https://news.kbs.co.kr/news/view.do?ncd=3258489" target="_blank">— SNS에 자녀 사진 무심코 올렸다가…</a></span></div>
             <div class="credit-row"><span class="credit-yr">2018 · 05</span><span class="credit-ch ch-jtbc">JTBC</span><span class="credit-prog">뭉쳐야 뜬다</span><span class="credit-ep"><a href="https://www.youtube.com/watch?v=44oIcX__j_s" target="_blank">— 74회 뭉쳐야 뜬다 × 비정상회담</a></span></div>
             <div class="credit-row"><span class="credit-yr">2018 · 07</span><span class="credit-ch ch-channela">채널A</span><span class="credit-prog">특별기획 균형 발전</span><span class="credit-ep"><a href="http://www.ichannela.com/program/template/video_detailPage.do?publishId=000000107623&amp;subCateCode=050303" target="_blank">— 행복한 나라의 조건</a></span></div>
-            <div class="credit-row"><span class="credit-yr">2018 · 08</span><span class="credit-ch ch-sbs">SBS</span><span class="credit-prog">SBS 스페셜</span><span class="credit-ep"><a href="http://allvod.sbs.co.kr/allvod/vodEndPage.do?mdaId=22000289864" target="_blank">— 519회 영미네 작은 식탁</a></span></div>
+            <div class="credit-row"><span class="credit-yr">2018 · 08</span><span class="credit-ch ch-sbs">SBS</span><span class="credit-prog">SBS 스페셜</span><span class="credit-ep"><a href="https://programs.sbs.co.kr/culture/sbsspecial/clip/80292/22000289864" target="_blank">— 519회 영미네 작은 식탁</a></span></div>
             <div class="credit-row"><span class="credit-yr">2018 · 11</span><span class="credit-ch ch-sbs">SBS</span><span class="credit-prog">그것이 알고 싶다</span><span class="credit-ep"><a href="https://programs.sbs.co.kr/culture/unansweredquestions/vod/55075/22000304232" target="_blank">— 라두 폰, 사라진 마을의 진실 — 천재(天災)인가 인재(人災)인가</a></span></div>
             <div class="credit-row"><span class="credit-yr">2018 · 12</span><span class="credit-ch ch-kbs">KBS</span><span class="credit-prog">다큐세상</span><span class="credit-ep"><a href="https://www.youtube.com/watch?v=wzaI0TaAS2c" target="_blank">— 푸드플랜 우리를 지키는 밥상</a></span></div>
             <div class="credit-row"><span class="credit-yr">2019 · 04</span><span class="credit-ch ch-mbc">MBC</span><span class="credit-prog">당신이 믿었던 페이크</span><span class="credit-ep"><a href="https://www.youtube.com/watch?v=eKEdSEWcT98" target="_blank">— 당신이 믿었던 가짜 난민</a></span></div>
@@ -992,14 +1416,14 @@
       </section>
 
       <!-- ══ COMPÉTENCES ══ -->
-      <section id="competences" class="section">
+      <section id="competences" class="section research-only">
         <div class="section-head appear">
           <div class="section-label" data-i18n="skills-label">Aptitudes</div>
           <h2 class="section-title" data-i18n-html="skills-title">Compétences <em>&amp; Outils</em></h2>
         </div>
 
         <div class="skills-grid appear">
-          <div class="skill-card">
+          <div class="skill-card research-only">
             <div class="skill-card-head" data-i18n="sk-lang-head">Langues</div>
             <div class="sk-row"><span data-i18n="sk-korean">Coréen</span><span class="sk-badge sk-native" data-i18n="sk-native">Natif</span></div>
             <div class="sk-row"><span>Français</span><span class="sk-badge sk-c2">C2</span></div>
@@ -1101,6 +1525,25 @@
 
       </section>
 
+      <!-- ══ CONTACT CTA (translation mode only) ══ -->
+      <div class="cta-section translation-only appear">
+        <!-- Decorative rings (reuse th2-ring styles) -->
+        <div class="th2-ring th2-ring-1" style="top:auto;bottom:-220px;right:auto;left:-160px;width:500px;height:500px" aria-hidden="true"></div>
+        <div class="th2-ring th2-ring-2" style="top:auto;bottom:-100px;right:auto;left:-60px;width:280px;height:280px" aria-hidden="true"></div>
+        <div class="cta-inner">
+          <div class="cta-eyebrow" data-i18n="cta-eyebrow">Collaboration</div>
+          <h2 class="cta-title" data-i18n-html="cta-title">Votre prochain<br/>interprète freelance</h2>
+          <p class="cta-sub" data-i18n-html="cta-sub">Disponible pour vos missions de conférence, liaison et traduction audiovisuelle. Réponse rapide garantie.</p>
+          <div class="cta-row">
+            <a href="mailto:howon.kim.fr@gmail.com" class="cta-email-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span data-i18n="cta-btn">Envoyer un message</span>
+            </a>
+            <span class="cta-email-addr">howon.kim.fr@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
       <footer>
         <div class="footer-inner">
           <span class="footer-name" data-i18n="footer-name">Ho Won Kim</span>
@@ -1197,6 +1640,10 @@
         'pro-label': 'Langues',
         'pro-title': 'Expérience <em>professionnelle</em>',
         'pro-group-1': 'Interprétation publique & diplomatique',
+        'pro-0-title': 'Interprète — Conférence UNESCO « Leadership durable et éducation » <span style="font-weight:300;color:var(--ink-2)">(Coréen–Anglais)</span>',
+        'pro-0-sub': 'Division de l\'Éducation 2030 de l\'UNESCO · <em>Dir. Kim Min-jeong</em>',
+        'pro-0-detail': '90 enseignants innovants coréens',
+        'sb-tag-tr-1': 'Diplomatique & public', 'sb-tag-tr-2': 'Commercial & événementiel', 'sb-tag-tr-3': 'Médias & audiovisuel',
         'pro-1-title': 'Interprétation de liaison — Délégation de la DSAC de Jeonbuk × CNL / ISFEC <span style="font-weight:300;color:var(--ink-2)">(Français–Coréen)</span>',
         'pro-1-sub': 'Délégation de la Direction de l\'Éducation de Jeonbuk · Centre national du livre · Institut de formation de l\'Enseignement catholique',
         'pro-2-title': 'Interprétation de conférence — Réunion inter-agences CNIL × KISA <span style="font-weight:300;color:var(--ink-2)">(Français–Coréen)</span>',
@@ -1264,7 +1711,7 @@
         'nav-pro-media': 'Audiovisuel',
         'nav-pro-autres': 'Autres',
         'nav-edu-compact': 'Formation',
-        'pro-pub-label': 'Interprétation', 'pro-pub-title': 'Interprétation <em>publique &amp; diplomatique</em>',
+        'pro-pub-label': 'Interprétation', 'pro-pub-title': 'Interprétation <em>publique et diplomatique</em>',
         'pro-com-label': 'Interprétation', 'pro-com-title': 'Interprétation <em>commerciale</em>',
         'pro-med-label': 'Traduction', 'pro-med-title': 'Traduction <em>audiovisuelle</em>',
         'pro-aut-label': 'Traduction & Bénévolat', 'pro-aut-title': 'Autres',
@@ -1278,6 +1725,29 @@
         'edu-c-3-deg': 'Doctorat · Sciences du Langage',
         'edu-c-3-note': 'En cours',
         'footer-copy': 'Doctorant en Sciences du Langage · Sorbonne Nouvelle · Paris',
+        /* ── translation hero v2 ── */
+        'lang-fr': 'Français', 'lang-en': 'Anglais', 'lang-ko': 'Coréen',
+        'th2-level-c2': 'C2',
+        'th2-stat-1-l': 'ans d\'expérience',
+        'th2-stat-2-l': 'missions réalisées',
+        'th2-stat-3-l': 'crédits TV nationales',
+        'th2-stat-4-l': 'secteurs d\'expertise',
+        'th2-p1-title': 'Diplomatique & public',
+        'th2-p1-sub': 'Organismes publics, délégations officielles, tribunal central de district de Séoul, défense nationale',
+        'th2-p2-title': 'Commercial & événementiel',
+        'th2-p2-sub': 'VivaTech Paris, Fashion Week, K-Expo, France Hydrogène',
+        'th2-p3-title': 'Médias & audiovisuel',
+        'th2-p3-sub': 'KBS · SBS · MBC · JTBC · EBS · OBS — 2015–2025',
+        'th2-cta': 'Me contacter',
+        'th2-cta-cv': 'Voir les expériences →',
+        /* ── section intros ── */
+        'si-pub-text': '<strong>Gouvernements, agences, tribunaux.</strong> Interprétation de liaison et de conférence pour des missions à haute responsabilité institutionnelle — discrétion et précision terminologique garanties.',
+        'si-com-text': '<strong>Salons, délégations d\'affaires, événements culturels.</strong> Interprétation trilingue au cœur des échanges franco-coréens — tech, énergie, culture, mode.',
+        /* ── contact CTA ── */
+        'cta-eyebrow': 'Collaboration',
+        'cta-title': 'Votre prochain<br/>interprète freelance',
+        'cta-sub': 'Disponible pour vos missions de conférence, liaison et traduction audiovisuelle.<br/>Réponse rapide garantie.',
+        'cta-btn': 'Envoyer un message',
       },
 
       en: {
@@ -1362,6 +1832,10 @@
         'pro-label': 'Languages',
         'pro-title': 'Professional <em>Experience</em>',
         'pro-group-1': 'Public & Diplomatic Interpreting',
+        'pro-0-title': 'Interpreter — UNESCO Conference "Sustainable Leadership and Education" <span style="font-weight:300;color:var(--ink-2)">(Korean–English)</span>',
+        'pro-0-sub': 'UNESCO Education 2030 Division · <em>Dir. Kim Min-jeong</em>',
+        'pro-0-detail': '~90 Korean innovative teachers',
+        'sb-tag-tr-1': 'Diplomatic & public', 'sb-tag-tr-2': 'Corporate & events', 'sb-tag-tr-3': 'Media & audiovisual',
         'pro-1-title': 'Liaison Interpreting — Jeonbuk Education Delegation × CNL / ISFEC <span style="font-weight:300;color:var(--ink-2)">(French–Korean)</span>',
         'pro-1-sub': 'Jeonbuk Special Autonomous Province Education Delegation · Centre national du livre · Institut de formation de l\'Enseignement catholique',
         'pro-2-title': 'Conference Interpreting — CNIL × KISA Inter-agency Meeting <span style="font-weight:300;color:var(--ink-2)">(French–Korean)</span>',
@@ -1444,6 +1918,29 @@
         'nav-financements': 'Funding',
         'pro-4-sub': 'Dongnam Co.',
         'snu-strong': '<strong>Seoul National University</strong>',
+        /* ── translation hero v2 ── */
+        'lang-fr': 'French', 'lang-en': 'English', 'lang-ko': 'Korean',
+        'th2-level-c2': 'C2',
+        'th2-stat-1-l': 'years of experience',
+        'th2-stat-2-l': 'completed missions',
+        'th2-stat-3-l': 'national TV credits',
+        'th2-stat-4-l': 'areas of expertise',
+        'th2-p1-title': 'Diplomatic & public',
+        'th2-p1-sub': 'Public bodies, official delegations, Seoul Central District Court, national defence',
+        'th2-p2-title': 'Commercial & events',
+        'th2-p2-sub': 'VivaTech Paris, Fashion Week, K-Expo, France Hydrogène',
+        'th2-p3-title': 'Media & audiovisual',
+        'th2-p3-sub': 'KBS · SBS · MBC · JTBC · EBS · OBS — 2015–2025',
+        'th2-cta': 'Get in touch',
+        'th2-cta-cv': 'View Experience →',
+        /* ── section intros ── */
+        'si-pub-text': '<strong>Governments, agencies, courts.</strong> Liaison and conference interpreting for high-stakes institutional assignments — discretion and terminological precision guaranteed.',
+        'si-com-text': '<strong>Trade shows, business delegations, cultural events.</strong> Trilingual interpreting at the heart of Franco-Korean business exchanges — tech, energy, culture, fashion.',
+        /* ── contact CTA ── */
+        'cta-eyebrow': 'Work with me',
+        'cta-title': 'Your next<br/>freelance interpreter',
+        'cta-sub': 'Available for conference, liaison and audiovisual translation assignments.<br/>Quick response guaranteed.',
+        'cta-btn': 'Send a message',
       },
 
       ko: {
@@ -1465,7 +1962,7 @@
         'hero-title': '언어학자,<br/>연구자',
         'hero-bio': '소르본 누벨 대학 <strong>CLESTHIA</strong> 연구소 박사과정생으로 <strong>담화 분석</strong> 및 <strong>의미론</strong> 전공. 에너지 기업의 환경 담화 연구 — TotalEnergies 집중 분석. <strong>프랑스어 · 영어 · 한국어</strong> 전문 통역사.',
         'chip-1': '담화 분석', 'chip-2': '의미론', 'chip-3': '화용론', 'chip-4': '디지털 담화', 'chip-5': '환경 담화',
-        'form-label': '학력 사항', 'form-title': '학력',
+        'form-label': '학력', 'form-title': '학력 사항',
         'form-1-title': '언어학 박사과정 (2년차–현재)',
         'form-2-title': '언어학 박사과정 (1년차)',
         'form-3-title': '불어불문학 석사 졸업',
@@ -1508,7 +2005,7 @@
         'teach-7-title': '강의 조교 — <em>「최고지도자 인문학과정 Ad Fontes Program」</em> (대중강연, 60시간)',
         'teach-7-detail': '차세대 지도자들을 위한 인문학 프로그램 운영 지원',
         'res-label': '학술',
-        'res-title': '연구 <em>경력</em>',
+        'res-title': '연구 <em>활동</em>',
         'res-group-1': '연구 활동 조직',
         'res-1-title': '조직 위원회 — 국제 학술대회 「The Expression of Indebtedness in Linguistics」',
         'res-1-sub': '리옹 3 장 물랭 대학교',
@@ -1521,7 +2018,7 @@
         'res-4-detail': '연구 학교 운영 · 세션 진행 및 토론 조율',
         'res-p-title': '연구 프로젝트 담당자 — <a href="https://yufe-polar.github.io/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px"><strong>POLAR Project</strong></a> <span style="font-weight:300;color:var(--ink-3);font-size:0.8em">(Polemics in Online Language and Automated Recognition)</span>',
         'res-p-detail': '온라인 담화 내 논쟁 표현 전략 연구 — POLAR (Polemics in Online Language and Automated Recognition)',
-        'res-group-2': '기타 연구 경력',
+        'res-group-2': '기타 연구 활동',
         'res-5-title': '학술 방문 — <strong>ATILF</strong> (UMR 7118, CNRS – 로렌대학교), 낭시',
         'res-5-detail': '알랭 폴게르 초청으로 어휘론 관련 학술 활동 참여 (세미나, 연구 모임, 강의)',
         'res-6-title': '자원활동가 — 직장 내 괴롭힘 연구',
@@ -1529,7 +2026,11 @@
         'res-6-detail': '직장 내 괴롭힘 연구 · 프랑스 법령 및 판례 번역',
         'pro-label': '통번역',
         'pro-title': '일반 <em>경력</em>',
-        'pro-group-1': '공공 & 외교 통역',
+        'pro-group-1': '공공 · 외교 통역',
+        'pro-0-title': '컨퍼런스 발표 통역 — 유네스코 컨퍼런스 「지속가능한 리더십과 교육」 <span style="font-weight:300;color:var(--ink-2)">(영어–한국어)</span>',
+        'pro-0-sub': '유네스코 교육2030국 · <em>김민정 국장</em>',
+        'pro-0-detail': '대한민국 혁신교사 90여명 대상',
+        'sb-tag-tr-1': '외교·공공 통역', 'sb-tag-tr-2': '비즈니스·행사 통역', 'sb-tag-tr-3': '미디어·방송 번역',
         'pro-1-title': '방문 통역 — 전북 교육청 대표단 × CNL / ISFEC <span style="font-weight:300;color:var(--ink-2)">(프랑스어–한국어)</span>',
         'pro-1-sub': '전북특별자치도 교육청 대표단 · 국립도서센터 (CNL) · 가톨릭 교원양성기관 (ISFEC)',
         'pro-2-title': '회의 통역 — CNIL × KISA 기관 간 회의 <span style="font-weight:300;color:var(--ink-2)">(프랑스어–한국어)</span>',
@@ -1578,9 +2079,9 @@
         'au7-title': '교육 이수 — 「머신러닝과 딥러닝을 위한 파이썬 기초」 (서울대학교 교수학습개발센터)',
         'au7-sub': '교수학습개발센터 · <strong>서울대학교</strong>',
         'th-kicker': '통번역인',
-        'th-title': '언어와 언어 사이,<br/>사람을 잇다',
+        'th-title': '언어와 언어 사이,<br/>사람을 잇습니다',
         'th-bio': '<strong>회의 통역 및 순차 통역 전문가, 미디어 번역가</strong>',
-        'th-d1': '공공 & 외교 통역',
+        'th-d1': '공공 · 외교 통역',
         'th-d2': '비즈니스 통역',
         'th-d3': '미디어 & 콘텐츠 번역',
         'credits-note': '',
@@ -1589,7 +2090,7 @@
         'nav-pro-media': '방송 번역',
         'nav-pro-autres': '기타 통번역',
         'nav-edu-compact': '학력',
-        'pro-pub-label': '통역', 'pro-pub-title': '공공 &amp; <em>외교 통역</em>',
+        'pro-pub-label': '통역', 'pro-pub-title': '공공 · <em>외교 통역</em>',
         'pro-com-label': '통역', 'pro-com-title': '비즈니스 <em>통역</em>',
         'pro-med-label': '번역', 'pro-med-title': '방송 <em>번역</em>',
         'pro-aut-label': '번역 & 자원활동', 'pro-aut-title': '기타 <em>통번역</em>',
@@ -1610,6 +2111,29 @@
         'nav-financements': '장학',
         'pro-4-sub': '주식회사 동남',
         'snu-strong': '<strong>서울대학교</strong>',
+        /* ── translation hero v2 ── */
+        'lang-fr': '프랑스어', 'lang-en': '영어', 'lang-ko': '한국어',
+        'th2-level-c2': 'C2',
+        'th2-stat-1-l': '년 경력',
+        'th2-stat-2-l': '통번역 수행 건수',
+        'th2-stat-3-l': '지상파·케이블 방송',
+        'th2-stat-4-l': '전문 분야',
+        'th2-p1-title': '공공 · 외교 통역',
+        'th2-p1-sub': '공공기관, 외교 대표단, 서울중앙지법, 국방부',
+        'th2-p2-title': '비즈니스 · 이벤트 통역',
+        'th2-p2-sub': 'VivaTech 파리, 패션위크, K-Expo, France Hydrogène',
+        'th2-p3-title': '미디어 · 방송 번역',
+        'th2-p3-sub': 'KBS · SBS · MBC · JTBC · EBS · OBS — 2015–2025',
+        'th2-cta': '연락하기',
+        'th2-cta-cv': '경력 보기 →',
+        /* ── section intros ── */
+        'si-pub-text': '<strong>기관, 법원, 공공 단체</strong> 등 높은 책임감이 필요한 공공·외교 현장에서 순차 통역과 회의 통역을 제공합니다. 기밀은 철저히 지키고, 전문 용어는 정확하게 전달합니다.',
+        'si-com-text': '<strong>박람회</strong>부터 비즈니스 대표단, 문화 행사까지. 한국어·프랑스어·영어 삼중언어 통역으로 한불 교류의 현장을 매끄럽게 잇습니다.',
+        /* ── contact CTA ── */
+        'cta-eyebrow': '함께 일해요',
+        'cta-title': '통번역이<br/>필요하신가요?',
+        'cta-sub': '회의 통역, 순차 통역, 방송 번역 등 다양한 형태의 의뢰를 맡고 있습니다.<br/>문의 주시면 빠르게 답변드립니다.',
+        'cta-btn': '이메일 보내기',
       }
     };
 
@@ -1618,7 +2142,7 @@
     ═══════════════════════════════════════════════ */
     let currentLang = 'fr';
 
-    function applyLang(lang) {
+    function applyLang(lang, skipURL = false) {
       currentLang = lang;
       document.documentElement.lang = lang;
 
@@ -1645,6 +2169,14 @@
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
 
+      // Korean date format: "2026 · 01" → "2026년 1월"
+      document.querySelectorAll('.tl-yr, .pub-yr').forEach(el => {
+        if (!el.dataset.origDate) el.dataset.origDate = el.innerHTML;
+        el.innerHTML = lang === 'ko'
+          ? el.dataset.origDate.replace(/(\d{4})\s*·\s*0?(\d+)(?:–0?(\d+))?/g, (_, y, m1, m2) => m2 ? `${y}년 ${m1}–${m2}월` : `${y}년 ${m1}월`)
+          : el.dataset.origDate;
+      });
+
       // Korean guillemet → 「」 conversion for hardcoded pub-titles
       document.querySelectorAll('.pub-title:not([data-i18n-html]) em, .pub-title:not([data-i18n-html]) strong').forEach(el => {
         if (!el.dataset.origHtml) el.dataset.origHtml = el.innerHTML;
@@ -1655,6 +2187,7 @@
 
       // Save preference
       localStorage.setItem('cv-lang', lang);
+      if (!skipURL) _updateURL();
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1662,15 +2195,48 @@
     });
 
     /* ── CV MODE ── */
-    function setCVMode(mode) {
+    function setCVMode(mode, skipURL = false) {
       document.body.classList.toggle('mode-translation', mode === 'translation');
       document.querySelectorAll('.cv-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.mode === mode);
       });
       localStorage.setItem('cv-mode', mode);
+      if (!skipURL) _updateURL();
     }
     document.querySelectorAll('.cv-btn').forEach(btn => {
       btn.addEventListener('click', () => setCVMode(btn.dataset.mode));
+    });
+
+    /* ── URL ROUTING ── */
+    function _currentMode() {
+      return document.body.classList.contains('mode-translation') ? 'translation' : 'research';
+    }
+    function _updateURL() {
+      const mode = _currentMode(), lang = currentLang;
+      const parts = [];
+      if (mode === 'translation') parts.push('interpret');
+      if (lang === 'ko') parts.push('kr');
+      else if (lang === 'en') parts.push('en');
+      // research + fr are defaults → clean root URL
+      const path = '/' + parts.join('/');
+      history.pushState({ mode, lang }, '', path);
+    }
+    function _parseRoute(path) {
+      const segs = path.replace(/^\//, '').replace(/\/$/, '').split('/').filter(Boolean);
+      let mode = null, lang = null;
+      const modeMap = { research: 'research', interpret: 'translation' };
+      const langMap = { kr: 'ko', en: 'en', fr: 'fr' };
+      segs.forEach(s => {
+        if (modeMap[s]) mode = modeMap[s];
+        if (langMap[s]) lang = langMap[s];
+      });
+      return { mode, lang };
+    }
+    window.addEventListener('popstate', e => {
+      if (e.state) {
+        if (e.state.mode) setCVMode(e.state.mode, true);
+        if (e.state.lang) applyLang(e.state.lang, true);
+      }
     });
 
     /* ═══════════════════════════════════════════════
@@ -1695,11 +2261,28 @@
     // Hero appear immediately
     setTimeout(() => document.querySelector('.hero').classList.add('in'), 80);
 
-    // Restore saved language preference
-    const saved = localStorage.getItem('cv-lang');
-    if (saved && T[saved]) applyLang(saved);
-    const savedMode = localStorage.getItem('cv-mode');
-    if (savedMode) setCVMode(savedMode);
+    // Bootstrap: URL takes priority → localStorage → defaults
+    (function() {
+      const params = new URLSearchParams(location.search);
+      const routeParam = params.get('r');
+      let path;
+      if (routeParam) {
+        // Came from 404.html redirect — restore the clean URL
+        path = '/' + decodeURIComponent(routeParam);
+        history.replaceState(null, '', path);
+      } else {
+        path = location.pathname;
+      }
+      const { mode: urlMode, lang: urlLang } = _parseRoute(path);
+      const savedLang = localStorage.getItem('cv-lang');
+      const savedMode = localStorage.getItem('cv-mode');
+      const finalLang = urlLang || (T[savedLang] ? savedLang : 'fr');
+      const finalMode = urlMode || savedMode || 'research';
+      applyLang(finalLang, true);
+      setCVMode(finalMode, true);
+      // Write clean initial state into history
+      history.replaceState({ mode: finalMode, lang: finalLang }, '', path.replace(/\?.*$/, '') || '/');
+    })();
   </script>
 </body>
 </html>
