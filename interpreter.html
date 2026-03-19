@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ho Won KIM — Interprète &amp; Traducteur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #08080F;
+      --gold: #C4913A;
+      --gold-tint: rgba(196, 145, 58, 0.12);
+      --gold-border: rgba(196, 145, 58, 0.25);
+      --gold-glow: rgba(196, 145, 58, 0.18);
+      --text-primary: #F2EDE4;
+      --text-muted: #8A8278;
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(196, 145, 58, 0.2);
+      --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
+      --ease-entry: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Subtle noise overlay ────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.018;
+      pointer-events: none;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', 'Noto Serif KR', serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* ── Scroll Animations ──────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      filter: blur(4px);
+      transition:
+        opacity 800ms var(--ease-entry),
+        transform 800ms var(--ease-entry),
+        filter 800ms var(--ease-entry);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 100ms; }
+    .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 320ms; }
+    .reveal-delay-4 { transition-delay: 440ms; }
+    .reveal-delay-5 { transition-delay: 560ms; }
+
+    /* ── Floating Nav ───────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(8, 8, 15, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(196, 145, 58, 0.22);
+      border-radius: 100px;
+      padding: 10px 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: padding var(--ease-out) 300ms, transform var(--ease-out) 300ms;
+      will-change: transform;
+    }
+
+    .nav.scrolled {
+      padding: 7px 22px;
+      transform: translateX(-50%) scale(0.97);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      margin-right: 12px;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--gold-border);
+      margin-right: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 5px 12px;
+      border-radius: 100px;
+      position: relative;
+      transition: color var(--ease-out) 250ms;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: 12px;
+      right: 12px;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--ease-out) 280ms;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* ── Nav Language Switcher ──────────────────────────── */
+    .nav-lang-switcher {
+      display: flex;
+      gap: 2px;
+      margin-left: 8px;
+      padding-left: 12px;
+      border-left: 1px solid var(--gold-border);
+    }
+
+    .nav-lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: color 200ms var(--ease-out), background 200ms var(--ease-out);
+    }
+
+    .nav-lang-btn.active {
+      color: var(--gold);
+      background: var(--gold-tint);
+    }
+
+    .nav-lang-btn:hover:not(.active) {
+      color: var(--text-primary);
+    }
+
+    /* ── Hero Section ───────────────────────────────────────── */
+    .hero {
+      position: relative;
+      z-index: 2;
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 120px 80px 80px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 60%;
+      height: 70%;
+      background: radial-gradient(ellipse at center, rgba(196, 145, 58, 0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: radial-gradient(ellipse at top right, rgba(196, 145, 58, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Hero Left */
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-name .first-name {
+      display: block;
+      font-size: clamp(52px, 6vw, 82px);
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .hero-name .last-name {
+      display: block;
+      font-size: clamp(64px, 7.5vw, 104px);
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', 'Noto Serif KR', serif;
+      font-style: italic;
+      font-size: clamp(16px, 1.6vw, 22px);
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.5;
+      max-width: 400px;
+    }
+
+    .hero-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lang-pill {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 7px 18px;
+      border: 1px solid var(--gold);
+      border-radius: 100px;
+      color: var(--gold);
+      background: var(--gold-tint);
+      transition: background var(--ease-out) 250ms, transform var(--ease-out) 250ms, color var(--ease-out) 250ms;
+      cursor: pointer;
+    }
+
+    .lang-pill:hover:not(.active) {
+      background: rgba(196, 145, 58, 0.22);
+      transform: translateY(-2px);
+    }
+
+    .lang-pill.active {
+      background: var(--gold);
+      color: #08080F;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 4px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #08080F;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 13px 26px;
+      border-radius: 100px;
+      transition: background var(--ease-out) 280ms, transform var(--ease-out) 280ms, box-shadow var(--ease-out) 280ms;
+    }
+
+    .btn-primary:hover {
+      background: #d4a145;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(196, 145, 58, 0.35);
+    }
+
+    .btn-ghost {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color var(--ease-out) 250ms;
+    }
+
+    .btn-ghost:hover {
+      color: var(--text-primary);
+    }
+
+    /* Hero Right */
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-wrapper {
+      position: relative;
+      width: 380px;
+      height: 480px;
+    }
+
+    .photo-bezel-outer {
+      position: absolute;
+      inset: -12px;
+      border: 1px solid rgba(196, 145, 58, 0.35);
+      border-radius: 20px;
+      transform: rotate(-2deg);
+    }
+
+    .photo-card {
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      transform: rotate(-2deg);
+      border: 1px solid rgba(196, 145, 58, 0.45);
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(196, 145, 58, 0.1),
+        inset 0 0 60px rgba(196, 145, 58, 0.04);
+      transition: transform var(--ease-out) 500ms, box-shadow var(--ease-out) 500ms;
+      will-change: transform;
+    }
+
+    .photo-card:hover {
+      transform: rotate(-0.5deg) translateY(-8px);
+      box-shadow:
+        0 45px 100px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(196, 145, 58, 0.2),
+        0 0 60px rgba(196, 145, 58, 0.1);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .photo-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(8, 8, 15, 0.65) 0%,
+        rgba(8, 8, 15, 0.2) 35%,
+        transparent 60%
+      );
+      pointer-events: none;
+    }
+
+    .deco-corner {
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      width: 60px;
+      height: 60px;
+      border-top: 1px solid var(--gold-border);
+      border-left: 1px solid var(--gold-border);
+      border-radius: 4px 0 0 0;
+      opacity: 0.6;
+    }
+
+    /* ── Stats Bar ──────────────────────────────────────────── */
+    .stats-bar {
+      position: relative;
+      z-index: 2;
+      padding: 0 80px 80px;
+    }
+
+    .stats-inner {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 48px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(196, 145, 58, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 0 32px;
+      position: relative;
+    }
+
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold-border), transparent);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 5vw, 72px);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-suffix {
+      font-size: 0.6em;
+      font-weight: 400;
+      vertical-align: super;
+    }
+
+    .stat-label {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ── Section Headers ─────────────────────────────────────── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-eyebrow::before,
+    .section-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold-border);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', 'Noto Serif KR', serif;
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ── Services Section ─────────────────────────────────────── */
+    .services {
+      position: relative;
+      z-index: 2;
+      padding: 80px 80px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    /* ── Regular service card (non-flippable) ── */
+    .service-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 32px;
+      position: relative;
+      transition:
+        transform var(--ease-out) 350ms,
+        box-shadow var(--ease-out) 350ms,
+        border-color var(--ease-out) 350ms;
+      overflow: hidden;
+      will-change: transform;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196, 145, 58, 0.4), transparent);
+      opacity: 0;
+      transition: opacity var(--ease-out) 350ms;
+    }
+
+    .service-card:nth-child(2) {
+      transform: translateY(0px);
+    }
+
+    .service-card:nth-child(3) {
+      transform: rotate(1deg) translateY(4px);
+    }
+
+    .service-card:not(.flippable):hover {
+      transform: translateY(-6px) rotate(0deg) !important;
+      box-shadow: 0 20px 60px rgba(196, 145, 58, 0.12), 0 0 0 1px rgba(196, 145, 58, 0.3);
+      border-color: rgba(196, 145, 58, 0.4);
+    }
+
+    .service-card:not(.flippable):hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--gold-tint);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 24px;
+    }
+
+    .service-card-title {
+      font-family: 'Playfair Display', 'Noto Serif KR', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .service-card-desc {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .service-tag {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 5px 12px;
+      border-radius: 100px;
+      background: rgba(196, 145, 58, 0.08);
+      border: 1px solid rgba(196, 145, 58, 0.18);
+      color: rgba(196, 145, 58, 0.85);
+      text-transform: uppercase;
+    }
+
+    .service-number {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 900;
+      color: rgba(196, 145, 58, 0.14);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ── Flip Card — Card 01 ─────────────────────────────── */
+    .service-card.flippable {
+      perspective: 1200px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      overflow: visible;
+      transform: none !important;
+      min-height: 440px;
+    }
+
+    .service-card.flippable:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    .service-card.flippable::before {
+      display: none;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 440px;
+      transform-style: preserve-3d;
+      transition: transform 0.72s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 20px;
+    }
+
+    .service-card.flippable.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* Front face styling */
+    .card-front {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 40px 32px 52px;
+      transition:
+        box-shadow var(--ease-out) 350ms,
+        border-color var(--ease-out) 350ms;
+    }
+
+    .card-front::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196, 145, 58, 0.4), transparent);
+      opacity: 0;
+      transition: opacity var(--ease-out) 350ms;
+    }
+
+    .service-card.flippable:not(.flipped):hover .card-front {
+      box-shadow: 0 20px 60px rgba(196, 145, 58, 0.12), 0 0 0 1px rgba(196, 145, 58, 0.3);
+      border-color: rgba(196, 145, 58, 0.4);
+    }
+
+    .service-card.flippable:not(.flipped):hover .card-front::before {
+      opacity: 1;
+    }
+
+    /* Flip hint on front */
+    .flip-hint {
+      position: absolute;
+      bottom: 18px;
+      left: 32px;
+      right: 32px;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(196, 145, 58, 0.45);
+      transition: color var(--ease-out) 280ms;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .flip-hint::after {
+      content: '→';
+      transition: transform var(--ease-out) 280ms;
+    }
+
+    .service-card.flippable:not(.flipped):hover .flip-hint {
+      color: rgba(196, 145, 58, 0.9);
+    }
+
+    .service-card.flippable:not(.flipped):hover .flip-hint::after {
+      transform: translateX(4px);
+    }
+
+    /* Back face styling — warm light */
+    .card-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(145deg, #F7EFD8 0%, #EFE3C0 100%);
+      border: 1px solid rgba(196, 145, 58, 0.5);
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 60px rgba(196, 145, 58, 0.15), inset 0 0 60px rgba(196, 145, 58, 0.04);
+      overflow: hidden;
+    }
+
+    .card-back-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 28px 16px;
+      border-bottom: 1px solid rgba(196, 145, 58, 0.2);
+      flex-shrink: 0;
+    }
+
+    .card-back-heading {
+      font-family: 'Playfair Display', 'Noto Serif KR', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1A1208;
+      letter-spacing: 0.02em;
+    }
+
+    .card-close-btn {
+      background: none;
+      border: 1px solid rgba(196, 145, 58, 0.4);
+      cursor: pointer;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 5px 12px;
+      border-radius: 100px;
+      transition: background var(--ease-out) 200ms, color var(--ease-out) 200ms;
+    }
+
+    .card-close-btn:hover {
+      background: var(--gold);
+      color: #08080F;
+    }
+
+    /* Mission list */
+    .mission-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 28px 24px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(196, 145, 58, 0.4) transparent;
+    }
+
+    .mission-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .mission-list::-webkit-scrollbar-thumb {
+      background: rgba(196, 145, 58, 0.4);
+      border-radius: 2px;
+    }
+
+    .mission-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(196, 145, 58, 0.15);
+    }
+
+    .mission-item:last-child {
+      border-bottom: none;
+    }
+
+    .mission-date {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+
+    .mission-body {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .mission-title {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1A1208;
+      line-height: 1.45;
+    }
+
+    .mission-lang-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: rgba(196, 145, 58, 0.9);
+      background: rgba(196, 145, 58, 0.1);
+      border: 1px solid rgba(196, 145, 58, 0.25);
+      border-radius: 4px;
+      padding: 2px 7px;
+      width: fit-content;
+    }
+
+    .mission-org {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: #5C4520;
+      line-height: 1.4;
+    }
+
+    .mission-detail {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      color: #8A7252;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* ── Languages Section ──────────────────────────────────── */
+    .languages {
+      position: relative;
+      z-index: 2;
+      padding: 80px 80px;
+    }
+
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .lang-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 48px 36px;
+      text-align: center;
+      transition:
+        transform var(--ease-out) 320ms,
+        box-shadow var(--ease-out) 320ms,
+        border-color var(--ease-out) 320ms;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+
+    .lang-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(196, 145, 58, 0.06) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity var(--ease-out) 320ms;
+      pointer-events: none;
+    }
+
+    .lang-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(196, 145, 58, 0.3);
+      border-color: rgba(196, 145, 58, 0.38);
+    }
+
+    .lang-card:hover::after {
+      opacity: 1;
+    }
+
+    .lang-flag {
+      font-size: 56px;
+      margin-bottom: 20px;
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    }
+
+    .lang-name {
+      font-family: 'Playfair Display', 'Noto Serif KR', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .lang-level {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .lang-level-bar {
+      width: 64px;
+      height: 2px;
+      background: rgba(196, 145, 58, 0.15);
+      border-radius: 2px;
+      margin: 0 auto 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lang-level-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .lang-phrase {
+      font-family: 'Playfair Display', 'Noto Serif KR', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── TV Credits Marquee ─────────────────────────────────── */
+    .tv-strip {
+      position: relative;
+      z-index: 2;
+      padding: 60px 0;
+      overflow: hidden;
+    }
+
+    .tv-strip-label {
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: marquee 22s linear infinite;
+      will-change: transform;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .channel-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #fff;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .ch-kbs  { background: #1E6ABF; }
+    .ch-ebs  { background: #4CAF50; }
+    .ch-sbs  { background: #E53935; }
+    .ch-mbc  { background: #9C27B0; }
+    .ch-jtbc { background: #1a1a1a; border: 1px solid rgba(255,255,255,0.15); }
+    .ch-obs  { background: #FF6F00; }
+    .ch-cha  { background: #1565C0; }
+
+    /* ── CTA Section ────────────────────────────────────────── */
+    .cta-section {
+      position: relative;
+      z-index: 2;
+      padding: 80px 80px;
+    }
+
+    .cta-card {
+      background: var(--glass-bg);
+      border: 1px solid rgba(196, 145, 58, 0.35);
+      border-radius: 28px;
+      padding: 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(196, 145, 58, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .cta-eyebrow {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', 'Noto Serif KR', serif;
+      font-size: clamp(34px, 3.5vw, 52px);
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .cta-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cta-sub {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--gold);
+      color: #08080F;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 16px 28px 16px 32px;
+      border-radius: 100px;
+      transition:
+        background var(--ease-out) 280ms,
+        transform var(--ease-out) 280ms,
+        box-shadow var(--ease-out) 280ms;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn:hover {
+      background: #d4a145;
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(196, 145, 58, 0.4);
+    }
+
+    .cta-btn-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(8, 8, 15, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      transition: transform var(--ease-out) 280ms;
+    }
+
+    .cta-btn:hover .cta-btn-arrow {
+      transform: translateX(3px);
+    }
+
+    .cta-email-note {
+      margin-top: 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      padding: 40px 80px;
+      border-top: 1px solid rgba(196, 145, 58, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .footer-sub {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-right {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-align: right;
+    }
+
+    .footer-gold {
+      color: var(--gold);
+    }
+
+    /* ── Scrollbar ──────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(196, 145, 58, 0.3); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(196, 145, 58, 0.5); }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 100px 48px 64px;
+        gap: 64px;
+      }
+      .hero-right { order: -1; }
+      .photo-wrapper { width: 300px; height: 380px; }
+      .stats-bar, .services, .languages, .cta-section { padding-left: 48px; padding-right: 48px; }
+      .stats-inner { padding: 40px 32px; }
+      .services-grid, .languages-grid { grid-template-columns: 1fr; }
+      .service-card:nth-child(2), .service-card:nth-child(3) { transform: none; }
+      footer { padding: 32px 48px; flex-direction: column; gap: 12px; text-align: center; }
+      .footer-right { text-align: center; }
+    }
+
+    @media (max-width: 640px) {
+      .hero, .stats-bar, .services, .languages, .cta-section { padding-left: 24px; padding-right: 24px; }
+      .stats-inner { grid-template-columns: 1fr; gap: 32px; padding: 40px 24px; }
+      .stat-item::after { display: none; }
+      .cta-card { padding: 48px 32px; }
+      .nav { padding: 8px 18px; }
+      .nav-logo, .nav-divider { display: none; }
+      footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Floating Nav ─────────────────────────────────────── -->
+  <nav class="nav" id="mainNav" aria-label="Navigation principale">
+    <span class="nav-logo">HWK</span>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <ul class="nav-links">
+      <li><a href="#profil" data-i18n="nav-1">Profil</a></li>
+      <li><a href="#missions" data-i18n="nav-2">Missions</a></li>
+      <li><a href="#langues" data-i18n="nav-3">Langues</a></li>
+      <li><a href="#contact" data-i18n="nav-4">Contact</a></li>
+    </ul>
+    <div class="nav-lang-switcher" role="group" aria-label="Language / Langue / 언어">
+      <button class="nav-lang-btn active" data-lang="fr">FR</button>
+      <button class="nav-lang-btn" data-lang="en">EN</button>
+      <button class="nav-lang-btn" data-lang="ko">한</button>
+    </div>
+  </nav>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="hero" id="profil" aria-label="Présentation">
+    <!-- Left -->
+    <div class="hero-left">
+      <p class="hero-eyebrow reveal" data-i18n-html="hero-eyebrow">Interprète &amp; Traducteur</p>
+
+      <h1 class="hero-name reveal reveal-delay-1" aria-label="Ho Won KIM">
+        <span class="first-name">Ho Won</span>
+        <span class="last-name">KIM</span>
+      </h1>
+
+      <p class="hero-tagline reveal reveal-delay-2" data-i18n-html="hero-tagline">
+        Relier les langues,<br>rapprocher les esprits
+      </p>
+
+      <div class="hero-pills reveal reveal-delay-3" role="group" aria-label="Language selector">
+        <button class="lang-pill active" data-lang="fr">FR</button>
+        <button class="lang-pill" data-lang="en">EN</button>
+        <button class="lang-pill" data-lang="ko">한</button>
+      </div>
+
+      <div class="hero-cta-row reveal reveal-delay-4">
+        <a href="#contact" class="btn-primary" data-i18n="hero-cta1">Me contacter</a>
+        <a href="#missions" class="btn-ghost" data-i18n="hero-cta2">Voir les missions →</a>
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="hero-right">
+      <div class="photo-wrapper reveal reveal-delay-2">
+        <span class="deco-corner" aria-hidden="true"></span>
+        <div class="photo-bezel-outer" aria-hidden="true"></div>
+        <div class="photo-card">
+          <img src="ho-won-profile.jpg" alt="Ho Won KIM — Interprète de conférence" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats Bar ─────────────────────────────────────────── -->
+  <section class="stats-bar" id="missions" aria-label="Chiffres clés">
+    <div class="stats-inner reveal">
+      <div class="stat-item">
+        <div class="stat-number">
+          <span class="count" data-target="10">0</span><span class="stat-suffix">+</span>
+        </div>
+        <p class="stat-label" data-i18n="stat-1">Années d'expérience</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">
+          <span class="count" data-target="30">0</span><span class="stat-suffix">+</span>
+        </div>
+        <p class="stat-label" data-i18n="stat-2">Missions réalisées</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">
+          <span class="count" data-target="16">0</span>
+        </div>
+        <p class="stat-label" data-i18n="stat-3">Crédits TV nationaux</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Services ──────────────────────────────────────────── -->
+  <section class="services" aria-label="Services">
+    <div class="section-header">
+      <p class="section-eyebrow reveal" data-i18n="svc-eyebrow">Expertise</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="svc-title">Domaines <em>d'intervention</em></h2>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Card 01 — Flippable -->
+      <article class="service-card flippable reveal reveal-delay-1" id="card-public">
+        <div class="card-inner">
+
+          <!-- FRONT -->
+          <div class="card-front">
+            <span class="service-number" aria-hidden="true">01</span>
+            <div class="service-icon" aria-hidden="true">🏛</div>
+            <h3 class="service-card-title" data-i18n-html="svc-1-title">Interprétation publique &amp; diplomatique</h3>
+            <p class="service-card-desc" data-i18n-html="svc-1-desc">
+              Présence assurée lors des séances institutionnelles, audiences judiciaires et cérémonies officielles avec la plus grande rigueur.
+            </p>
+            <div class="service-tags">
+              <span class="service-tag">UNESCO</span>
+              <span class="service-tag">Tribunal</span>
+              <span class="service-tag">Défense Nationale</span>
+              <span class="service-tag">Institutionnel</span>
+            </div>
+            <p class="flip-hint" data-i18n="flip-hint">Voir les références</p>
+          </div>
+
+          <!-- BACK — Career history -->
+          <div class="card-back">
+            <div class="card-back-header">
+              <h3 class="card-back-heading" data-i18n="svc-flip-heading">Références &amp; expériences</h3>
+              <button class="card-close-btn" data-i18n="svc-flip-close">Fermer</button>
+            </div>
+            <div class="mission-list">
+
+              <div class="mission-item">
+                <div class="mission-date">2026<br>01</div>
+                <div class="mission-body">
+                  <p class="mission-title">컨퍼런스 발표 통역 — 유네스코 컨퍼런스 「지속가능한 리더십과 교육」</p>
+                  <span class="mission-lang-badge">EN ↔ KO</span>
+                  <p class="mission-org">유네스코 교육2030국 · 김민정 국장</p>
+                  <p class="mission-detail">대한민국 혁신교사 90여명 대상</p>
+                </div>
+              </div>
+
+              <div class="mission-item">
+                <div class="mission-date">2025<br>09</div>
+                <div class="mission-body">
+                  <p class="mission-title">방문 통역 — 전북 교육청 대표단 × CNL / ISFEC</p>
+                  <span class="mission-lang-badge">FR ↔ KO</span>
+                  <p class="mission-org">전북특별자치도 교육청 대표단 · 국립도서센터 (CNL) · 가톨릭 교원양성기관 (ISFEC)</p>
+                </div>
+              </div>
+
+              <div class="mission-item">
+                <div class="mission-date">2023<br>11</div>
+                <div class="mission-body">
+                  <p class="mission-title">회의 통역 — CNIL × KISA 기관 간 회의</p>
+                  <span class="mission-lang-badge">FR ↔ KO</span>
+                  <p class="mission-org">Commission Nationale de l'informatique et des libertés · 한국인터넷진흥원 (KISA)</p>
+                </div>
+              </div>
+
+              <div class="mission-item">
+                <div class="mission-date">2023<br>01–08</div>
+                <div class="mission-body">
+                  <p class="mission-title">법정 통번역인</p>
+                  <span class="mission-lang-badge">FR ↔ KO</span>
+                  <p class="mission-org">서울중앙지방법원</p>
+                </div>
+              </div>
+
+              <div class="mission-item">
+                <div class="mission-date">2019<br>07</div>
+                <div class="mission-body">
+                  <p class="mission-title">회의 통역 — 콩고민주공화국 대통령 특별 사절단 회동</p>
+                  <span class="mission-lang-badge">FR ↔ KO</span>
+                  <p class="mission-org">주식회사 동남</p>
+                </div>
+              </div>
+
+              <div class="mission-item">
+                <div class="mission-date">2016–<br>2018</div>
+                <div class="mission-body">
+                  <p class="mission-title">통역병</p>
+                  <span class="mission-lang-badge">FR / EN ↔ KO</span>
+                  <p class="mission-org">대한민국 국방부 정보본부</p>
+                </div>
+              </div>
+
+            </div><!-- /.mission-list -->
+          </div><!-- /.card-back -->
+
+        </div><!-- /.card-inner -->
+      </article>
+
+      <!-- Card 02 -->
+      <article class="service-card reveal reveal-delay-2">
+        <span class="service-number" aria-hidden="true">02</span>
+        <div class="service-icon" aria-hidden="true">💼</div>
+        <h3 class="service-card-title" data-i18n-html="svc-2-title">Interprétation commerciale</h3>
+        <p class="service-card-desc" data-i18n-html="svc-2-desc">
+          Accompagnement lors des salons professionnels, conférences d'affaires et négociations internationales à fort enjeu.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">VivaTech Paris</span>
+          <span class="service-tag">K-Expo</span>
+          <span class="service-tag">Fashion Week</span>
+          <span class="service-tag">Corporate</span>
+        </div>
+      </article>
+
+      <!-- Card 03 -->
+      <article class="service-card reveal reveal-delay-3">
+        <span class="service-number" aria-hidden="true">03</span>
+        <div class="service-icon" aria-hidden="true">🎬</div>
+        <h3 class="service-card-title" data-i18n-html="svc-3-title">Traduction audiovisuelle</h3>
+        <p class="service-card-desc" data-i18n-html="svc-3-desc">
+          Sous-titrage et doublage pour les chaînes nationales coréennes et françaises. 16 crédits diffusés sur antenne nationale.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">KBS</span>
+          <span class="service-tag">EBS</span>
+          <span class="service-tag">JTBC</span>
+          <span class="service-tag">MBC</span>
+        </div>
+      </article>
+
+    </div><!-- /.services-grid -->
+  </section>
+
+  <!-- ── Languages ─────────────────────────────────────────── -->
+  <section class="languages" id="langues" aria-label="Langues de travail">
+    <div class="section-header">
+      <p class="section-eyebrow reveal" data-i18n="lng-eyebrow">Compétences linguistiques</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="lng-title">Trois langues,<br><em>une voix</em></h2>
+    </div>
+
+    <div class="languages-grid">
+      <div class="lang-card reveal reveal-delay-1">
+        <span class="lang-flag" aria-hidden="true">🇫🇷</span>
+        <h3 class="lang-name" data-i18n="lng-fr-name">Français</h3>
+        <p class="lang-level" data-i18n="lng-fr-level">C2 — Maîtrise parfaite</p>
+        <div class="lang-level-bar" aria-hidden="true"><div class="lang-level-fill" style="width:100%"></div></div>
+        <p class="lang-phrase" data-i18n="lng-fr-phrase">"La langue de Molière, maniée avec la précision d'un orfèvre et la fluidité d'un fleuve."</p>
+      </div>
+
+      <div class="lang-card reveal reveal-delay-2">
+        <span class="lang-flag" aria-hidden="true">🇬🇧</span>
+        <h3 class="lang-name" data-i18n="lng-en-name">English</h3>
+        <p class="lang-level" data-i18n="lng-en-level">C2 — Full Proficiency</p>
+        <div class="lang-level-bar" aria-hidden="true"><div class="lang-level-fill" style="width:100%"></div></div>
+        <p class="lang-phrase" data-i18n="lng-en-phrase">"The global lingua franca, wielded with nuance, register, and the confidence of a native ear."</p>
+      </div>
+
+      <div class="lang-card reveal reveal-delay-3">
+        <span class="lang-flag" aria-hidden="true">🇰🇷</span>
+        <h3 class="lang-name" data-i18n="lng-ko-name">한국어</h3>
+        <p class="lang-level" data-i18n="lng-ko-level">Natif — 모국어</p>
+        <div class="lang-level-bar" aria-hidden="true"><div class="lang-level-fill" style="width:100%"></div></div>
+        <p class="lang-phrase" data-i18n="lng-ko-phrase">"어머니의 언어로, 세상과 연결하는 다리를 놓다 — La langue maternelle qui construit des ponts."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TV Credits Marquee ────────────────────────────────── -->
+  <div class="tv-strip reveal" aria-label="Chaînes partenaires">
+    <p class="tv-strip-label" data-i18n="tv-label">Crédits audiovisuels · Chaînes nationales</p>
+    <div style="overflow: hidden; cursor: default;">
+      <div class="marquee-track" aria-hidden="true">
+        <span class="channel-badge ch-kbs">KBS</span>
+        <span class="channel-badge ch-ebs">EBS</span>
+        <span class="channel-badge ch-sbs">SBS</span>
+        <span class="channel-badge ch-mbc">MBC</span>
+        <span class="channel-badge ch-jtbc">JTBC</span>
+        <span class="channel-badge ch-obs">OBS</span>
+        <span class="channel-badge ch-cha">채널A</span>
+        <span class="channel-badge ch-kbs">KBS 2</span>
+        <span class="channel-badge ch-ebs">EBS 2</span>
+        <span class="channel-badge ch-sbs">SBS Plus</span>
+        <span class="channel-badge ch-mbc">MBC Every1</span>
+        <span class="channel-badge ch-kbs">KBS</span>
+        <span class="channel-badge ch-ebs">EBS</span>
+        <span class="channel-badge ch-sbs">SBS</span>
+        <span class="channel-badge ch-mbc">MBC</span>
+        <span class="channel-badge ch-jtbc">JTBC</span>
+        <span class="channel-badge ch-obs">OBS</span>
+        <span class="channel-badge ch-cha">채널A</span>
+        <span class="channel-badge ch-kbs">KBS 2</span>
+        <span class="channel-badge ch-ebs">EBS 2</span>
+        <span class="channel-badge ch-sbs">SBS Plus</span>
+        <span class="channel-badge ch-mbc">MBC Every1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CTA ──────────────────────────────────────────────── -->
+  <section class="cta-section" id="contact" aria-label="Contact">
+    <div class="cta-card reveal">
+      <p class="cta-eyebrow" data-i18n="cta-eyebrow">Collaboration</p>
+      <h2 class="cta-title" data-i18n-html="cta-title">Votre prochain interprète<br><em>freelance</em></h2>
+      <p class="cta-sub" data-i18n="cta-sub">
+        Disponible pour missions ponctuelles, événements récurrents et projets audiovisuels. Réponse garantie sous 24h.
+      </p>
+      <a href="mailto:howon.kim.fr@gmail.com" class="cta-btn" aria-label="Envoyer un email">
+        <span data-i18n="cta-btn">Écrire un message</span>
+        <span class="cta-btn-arrow" aria-hidden="true">→</span>
+      </a>
+      <p class="cta-email-note">howon.kim.fr@gmail.com</p>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer aria-label="Pied de page">
+    <div class="footer-left">
+      <span class="footer-name">Ho Won KIM</span>
+      <span class="footer-sub" data-i18n-html="footer-sub">Interprète de conférence &amp; Traducteur audiovisuel</span>
+    </div>
+    <div class="footer-right">
+      <span class="footer-gold">Paris, France</span><br>
+      <span style="opacity: 0.5;">© 2025</span>
+    </div>
+  </footer>
+
+  <!-- ── Scripts ───────────────────────────────────────────── -->
+  <script>
+    'use strict';
+
+    /* ── Translations ─────────────────────────────────────── */
+    var T = {
+      fr: {
+        'page-title':    'Ho Won KIM — Interprète & Traducteur',
+        'nav-1': 'Profil', 'nav-2': 'Missions', 'nav-3': 'Langues', 'nav-4': 'Contact',
+        'hero-eyebrow':  'Interprète &amp; Traducteur',
+        'hero-tagline':  'Relier les langues,<br>rapprocher les esprits',
+        'hero-cta1': 'Me contacter', 'hero-cta2': 'Voir les missions →',
+        'stat-1': "Années d'expérience", 'stat-2': 'Missions réalisées', 'stat-3': 'Crédits TV nationaux',
+        'svc-eyebrow': 'Expertise',
+        'svc-title':     "Domaines <em>d'intervention</em>",
+        'svc-1-title':   'Interprétation publique &amp; diplomatique',
+        'svc-1-desc':    "Présence assurée lors des séances institutionnelles, audiences judiciaires et cérémonies officielles avec la plus grande rigueur.",
+        'svc-2-title':   'Interprétation commerciale',
+        'svc-2-desc':    "Accompagnement lors des salons professionnels, conférences d'affaires et négociations internationales à fort enjeu.",
+        'svc-3-title':   'Traduction audiovisuelle',
+        'svc-3-desc':    "Sous-titrage et doublage pour les chaînes nationales coréennes et françaises. 16 crédits diffusés sur antenne nationale.",
+        'svc-flip-heading': 'Références &amp; expériences',
+        'svc-flip-close': 'Fermer',
+        'flip-hint':     'Voir les références',
+        'lng-eyebrow':   'Compétences linguistiques',
+        'lng-title':     'Trois langues,<br><em>une voix</em>',
+        'lng-fr-name':   'Français',   'lng-fr-level': 'C2 — Maîtrise parfaite',
+        'lng-fr-phrase': '"La langue de Molière, maniée avec la précision d\'un orfèvre et la fluidité d\'un fleuve."',
+        'lng-en-name':   'English',    'lng-en-level': 'C2 — Full Proficiency',
+        'lng-en-phrase': '"The global lingua franca, wielded with nuance, register, and the confidence of a native ear."',
+        'lng-ko-name':   '한국어',     'lng-ko-level': 'Natif — 모국어',
+        'lng-ko-phrase': '"어머니의 언어로, 세상과 연결하는 다리를 놓다 — La langue maternelle qui construit des ponts."',
+        'tv-label':      'Crédits audiovisuels · Chaînes nationales',
+        'cta-eyebrow':   'Collaboration',
+        'cta-title':     'Votre prochain interprète<br><em>freelance</em>',
+        'cta-sub':       'Disponible pour missions ponctuelles, événements récurrents et projets audiovisuels. Réponse garantie sous 24h.',
+        'cta-btn':       'Écrire un message',
+        'footer-sub':    'Interprète de conférence &amp; Traducteur audiovisuel'
+      },
+      en: {
+        'page-title':    'Ho Won KIM — Interpreter & Translator',
+        'nav-1': 'Profile', 'nav-2': 'Missions', 'nav-3': 'Languages', 'nav-4': 'Contact',
+        'hero-eyebrow':  'Interpreter &amp; Translator',
+        'hero-tagline':  'Bridging languages,<br>bringing minds together',
+        'hero-cta1': 'Contact me', 'hero-cta2': 'View missions →',
+        'stat-1': 'Years of experience', 'stat-2': 'Completed missions', 'stat-3': 'National TV credits',
+        'svc-eyebrow': 'Expertise',
+        'svc-title':     'Fields of <em>practice</em>',
+        'svc-1-title':   'Public &amp; diplomatic interpreting',
+        'svc-1-desc':    'On-site at institutional sessions, court hearings and official ceremonies — with the utmost rigour.',
+        'svc-2-title':   'Business interpreting',
+        'svc-2-desc':    'Support at trade fairs, business conferences and high-stakes international negotiations.',
+        'svc-3-title':   'Audiovisual translation',
+        'svc-3-desc':    'Subtitling and dubbing for major Korean and French national broadcasters. 16 credits broadcast on air.',
+        'svc-flip-heading': 'References &amp; experience',
+        'svc-flip-close': 'Close',
+        'flip-hint':     'View references',
+        'lng-eyebrow':   'Language skills',
+        'lng-title':     'Three languages,<br><em>one voice</em>',
+        'lng-fr-name':   'French',     'lng-fr-level': 'C2 — Full mastery',
+        'lng-fr-phrase': '"The language of Molière, handled with the precision of a goldsmith and the fluency of a river."',
+        'lng-en-name':   'English',    'lng-en-level': 'C2 — Full proficiency',
+        'lng-en-phrase': '"The global lingua franca, wielded with nuance, register, and the confidence of a native ear."',
+        'lng-ko-name':   'Korean',     'lng-ko-level': 'Native — 모국어',
+        'lng-ko-phrase': '"어머니의 언어로, 세상과 연결하는 다리를 놓다 — The mother tongue that builds bridges."',
+        'tv-label':      'Audiovisual credits · National broadcasters',
+        'cta-eyebrow':   'Collaboration',
+        'cta-title':     'Your next freelance<br><em>interpreter</em>',
+        'cta-sub':       'Available for one-off assignments, recurring events and audiovisual projects. Response guaranteed within 24 h.',
+        'cta-btn':       'Send a message',
+        'footer-sub':    'Conference Interpreter &amp; Audiovisual Translator'
+      },
+      ko: {
+        'page-title':    'Ho Won KIM — 통번역사',
+        'nav-1': '프로필', 'nav-2': '서비스', 'nav-3': '언어', 'nav-4': '연락',
+        'hero-eyebrow':  '통번역사',
+        'hero-tagline':  '언어를 잇고,<br>마음을 가까이',
+        'hero-cta1': '연락하기', 'hero-cta2': '서비스 보기 →',
+        'stat-1': '년 경력', 'stat-2': '수행 미션', 'stat-3': 'TV 방송 크레딧',
+        'svc-eyebrow': '전문 분야',
+        'svc-title':     '통번역 <em>서비스</em>',
+        'svc-1-title':   '공공 및 외교 통역',
+        'svc-1-desc':    '국제기구 회의, 법정 통역, 공식 의전 행사에서 최고 수준의 전문성으로 현장 동행합니다.',
+        'svc-2-title':   '비즈니스 통역',
+        'svc-2-desc':    '무역 박람회, 비즈니스 컨퍼런스, 고부가가치 국제 협상 현장을 지원합니다.',
+        'svc-3-title':   '영상 번역',
+        'svc-3-desc':    '한국 및 프랑스 주요 방송사 자막·더빙 번역. 전국 방송 크레딧 16편.',
+        'svc-flip-heading': '주요 경력',
+        'svc-flip-close': '닫기',
+        'flip-hint':     '경력 보기',
+        'lng-eyebrow':   '언어 능력',
+        'lng-title':     '세 언어,<br><em>하나의 목소리</em>',
+        'lng-fr-name':   '프랑스어',   'lng-fr-level': 'C2 — 완벽한 구사',
+        'lng-fr-phrase': '"몰리에르의 언어를 장인의 정밀함과 강물 같은 유창함으로."',
+        'lng-en-name':   '영어',       'lng-en-level': 'C2 — 완전 숙달',
+        'lng-en-phrase': '"원어민의 감각으로 뉘앙스와 레지스터를 살린 세계의 링구아 프랑카."',
+        'lng-ko-name':   '한국어',     'lng-ko-level': '원어민',
+        'lng-ko-phrase': '"어머니의 언어로, 세상과 연결하는 다리를 놓다."',
+        'tv-label':      '방송 크레딧 · 전국 방송',
+        'cta-eyebrow':   '협업',
+        'cta-title':     '당신의 다음<br><em>프리랜서 통번역사</em>',
+        'cta-sub':       '단발 의뢰, 정기 행사, 영상 번역 프로젝트 등 모든 상황에서 24시간 내 응답을 보장합니다.',
+        'cta-btn':       '메시지 보내기',
+        'footer-sub':    '회의 통역사 &amp; 영상 번역사'
+      }
+    };
+
+    var currentLang = 'fr';
+
+    /* ── setLang ──────────────────────────────────────────── */
+    function setLang(lang) {
+      if (!T[lang]) return;
+      currentLang = lang;
+
+      document.documentElement.lang = lang;
+      document.title = T[lang]['page-title'];
+
+      // Plain text elements
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (T[lang][key] !== undefined) {
+          el.textContent = T[lang][key];
+        }
+      });
+
+      // HTML elements (allow tags: em, br, &amp; etc.)
+      document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n-html');
+        if (T[lang][key] !== undefined) {
+          el.innerHTML = T[lang][key];
+        }
+      });
+
+      // Active state on all lang buttons
+      document.querySelectorAll('[data-lang]').forEach(function (btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      try { localStorage.setItem('hwk-lang', lang); } catch (e) {}
+    }
+
+    /* ── Init language ────────────────────────────────────── */
+    (function () {
+      var saved = 'fr';
+      try { saved = localStorage.getItem('hwk-lang') || 'fr'; } catch (e) {}
+      if (!T[saved]) saved = 'fr';
+      setLang(saved);
+
+      document.querySelectorAll('[data-lang]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLang(btn.getAttribute('data-lang'));
+        });
+      });
+    })();
+
+    /* ── Flip card — Card 01 ──────────────────────────────── */
+    (function () {
+      var card = document.getElementById('card-public');
+      if (!card) return;
+
+      card.addEventListener('click', function (e) {
+        // Close button
+        var closeBtn = e.target.closest('.card-close-btn');
+        if (closeBtn) {
+          e.stopPropagation();
+          card.classList.remove('flipped');
+          return;
+        }
+        // If already flipped, clicks on back do nothing (let user scroll/read)
+        if (card.classList.contains('flipped')) return;
+        // Flip to back
+        card.classList.add('flipped');
+      });
+
+      // Keyboard: Escape closes flip
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && card.classList.contains('flipped')) {
+          card.classList.remove('flipped');
+        }
+      });
+    })();
+
+    /* ── Nav shrink on scroll ─────────────────────────────── */
+    (function () {
+      var nav = document.getElementById('mainNav');
+      if (!nav) return;
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
+    /* ── Reveal on scroll (IntersectionObserver) ─────────── */
+    (function () {
+      var revealEls = document.querySelectorAll('.reveal');
+      if (!revealEls.length) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(function (el) { observer.observe(el); });
+
+      // Hero elements visible immediately
+      document.querySelectorAll('.hero .reveal').forEach(function (el) {
+        el.classList.add('visible');
+      });
+    })();
+
+    /* ── Count-up animation ───────────────────────────────── */
+    (function () {
+      var counters = document.querySelectorAll('.count');
+      if (!counters.length) return;
+
+      function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+      function animateCount(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var duration = 1600;
+        var start = performance.now();
+        function update(now) {
+          var elapsed = now - start;
+          var progress = Math.min(elapsed / duration, 1);
+          el.textContent = Math.round(easeOutCubic(progress) * target);
+          if (progress < 1) requestAnimationFrame(update);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(update);
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(function (el) { observer.observe(el); });
+    })();
+
+    /* ── Active nav link on scroll ────────────────────────── */
+    (function () {
+      var sections = document.querySelectorAll('section[id]');
+      var navLinks = document.querySelectorAll('.nav-links a');
+      if (!sections.length || !navLinks.length) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.getAttribute('id');
+            navLinks.forEach(function (link) {
+              link.style.color = (link.getAttribute('href') === '#' + id) ? 'var(--text-primary)' : '';
+            });
+          }
+        });
+      }, { threshold: 0.4 });
+
+      sections.forEach(function (s) { observer.observe(s); });
+    })();
+  </script>
+</body>
+</html>
