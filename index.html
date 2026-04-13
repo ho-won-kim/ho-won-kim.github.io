@@ -151,15 +151,15 @@
       position: sticky;
       top: var(--topnav-h);
       height: calc(100vh - var(--topnav-h));
-      overflow-y: auto;
+      overflow: hidden;
       background: var(--navy-2);
       display: flex;
       flex-direction: column;
       border-right: 1px solid rgba(255,255,255,0.05);
     }
-    .sidebar::-webkit-scrollbar { width: 0; }
     .sb-photo-wrap {
-      padding: 28px 24px 20px;
+      padding: clamp(12px,2.2vh,28px) 20px clamp(8px,1.8vh,20px);
+      flex-shrink: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -167,14 +167,14 @@
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .sb-photo {
-      width: 150px; height: 150px;
+      width: clamp(72px,11vh,130px); height: clamp(72px,11vh,130px);
       border-radius: 50%;
-      border: 4px solid rgba(255,255,255,0.28);
-      margin-bottom: 18px;
+      border: 3px solid rgba(255,255,255,0.28);
+      margin-bottom: clamp(8px,1.4vh,18px);
       background: var(--navy-3);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Instrument Serif', serif;
-      font-size: 2.5rem;
+      font-size: clamp(1.5rem,4vh,2.5rem);
       color: rgba(255,255,255,0.4);
       overflow: hidden;
       box-shadow: 0 0 0 1px rgba(75,123,229,0.25);
@@ -182,36 +182,81 @@
     .sb-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
     .sb-name {
       font-family: 'Inter', sans-serif;
-      font-size: 1.25rem;
+      font-size: clamp(0.85rem,1.6vh,1.25rem);
       font-style: normal;
       font-weight: 500;
       color: rgba(255,255,255,0.82);
       line-height: 1.1;
-      margin-bottom: 10px;
+      margin-bottom: clamp(4px,0.8vh,10px);
       letter-spacing: 0.02em;
     }
-    .sb-name em { font-style: normal; font-weight: 800; font-size: 1.9rem; color: #fff; letter-spacing: 0.06em; display: block; margin-top: 3px; text-transform: uppercase; line-height: 1.05; }
-    .sb-role { font-size: 0.76rem; font-weight: 400; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    .sb-name em { font-style: normal; font-weight: 800; font-size: clamp(1.1rem,2.4vh,1.9rem); color: #fff; letter-spacing: 0.06em; display: block; margin-top: 2px; text-transform: uppercase; line-height: 1.05; }
+    .sb-role { font-size: clamp(0.62rem,1.1vh,0.76rem); font-weight: 400; color: rgba(255,255,255,0.65); line-height: 1.5; }
     .sb-tags {
-      padding: 16px 20px;
+      padding: clamp(8px,1.3vh,16px) 20px;
+      flex-shrink: 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      display: flex; flex-direction: column; gap: 6px;
+      display: flex; flex-direction: column; gap: clamp(3px,0.6vh,6px);
     }
     .sb-tag {
-      font-size: 0.7rem;
+      font-size: clamp(0.6rem,1.05vh,0.7rem);
       color: rgba(255,255,255,0.62);
       display: flex; align-items: flex-start; gap: 7px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
-    .sb-tag::before { content: '→'; color: rgba(75,123,229,0.8); font-size: 0.62rem; padding-top: 1px; flex-shrink: 0; }
-    .sb-contact { padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+    .sb-tag::before { content: '→'; color: rgba(75,123,229,0.8); font-size: 0.6rem; padding-top: 1px; flex-shrink: 0; }
+    .sb-contact {
+      padding: clamp(8px,1.3vh,16px) 20px;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; flex-direction: column; gap: clamp(4px,0.8vh,8px);
+    }
     .sb-contact-item {
       display: flex; align-items: flex-start; gap: 8px;
-      font-size: 0.7rem; color: rgba(255,255,255,0.58); line-height: 1.5;
+      font-size: clamp(0.6rem,1.05vh,0.7rem); color: rgba(255,255,255,0.58); line-height: 1.45;
       transition: color .15s;
     }
     .sb-contact-item:hover { color: rgba(255,255,255,0.88); }
-    .sb-contact-item svg { width: 12px; height: 12px; flex-shrink: 0; margin-top: 2px; }
+    .sb-contact-item svg { width: 11px; height: 11px; flex-shrink: 0; margin-top: 2px; }
+    /* ── 사이드바 스킬 ── */
+    .sb-skills {
+      padding: clamp(8px,1.3vh,14px) 20px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(8px,1.4vh,14px);
+    }
+    .sb-skill-group-label {
+      font-size: 0.54rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(75,123,229,0.75);
+      margin-bottom: clamp(3px,0.6vh,6px);
+    }
+    .sb-sk-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: clamp(2px,0.4vh,4px) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: clamp(0.6rem,1.05vh,0.66rem);
+      color: rgba(255,255,255,0.72);
+    }
+    .sb-sk-row:last-child { border-bottom: none; }
+    .sb-badge {
+      font-size: 0.52rem;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .sb-native { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.92); }
+    .sb-c2     { background: rgba(75,123,229,0.25);  color: rgba(100,150,255,1); }
+    .sb-mid    { background: rgba(255,255,255,0.07);  color: rgba(255,255,255,0.52); }
+    /* 데스크탑: #competences 메인섹션 숨김 (사이드바에 표시) */
+    @media (min-width: 761px) { #competences { display: none !important; } }
     /* ══════════════════════════════
        MAIN
     ══════════════════════════════ */
@@ -818,7 +863,6 @@
         <span class="sb-tag" data-i18n="sb-tag-2">Sémantique lexicale</span>
         <span class="sb-tag" data-i18n="sb-tag-3">Pragmatique</span>
         <span class="sb-tag" data-i18n="sb-tag-4">Discours environnemental</span>
-        <span class="sb-tag" data-i18n="sb-tag-5">Français · Anglais · Coréen</span>
       </div>
       <div class="sb-tags translation-only">
         <span class="sb-tag" data-i18n="sb-tag-tr-1">Diplomatique & public</span>
@@ -841,6 +885,22 @@
         <div class="sb-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           CLESTHIA (EA 7345), Sorbonne Nouvelle
+        </div>
+      </div>
+      <!-- ── 스킬 (사이드바) ── -->
+      <div class="sb-skills research-only">
+        <div class="sb-skill-group">
+          <div class="sb-skill-group-label" data-i18n="sk-lang-head">Langues</div>
+          <div class="sb-sk-row"><span data-i18n="sk-korean">Coréen</span><span class="sb-badge sb-native" data-i18n="sk-native">Natif</span></div>
+          <div class="sb-sk-row"><span>Français</span><span class="sb-badge sb-c2">C2</span></div>
+          <div class="sb-sk-row"><span data-i18n="sk-english">Anglais</span><span class="sb-badge sb-c2">C2</span></div>
+        </div>
+        <div class="sb-skill-group">
+          <div class="sb-skill-group-label" data-i18n="sk-tools-head">Outils numériques</div>
+          <div class="sb-sk-row"><span>TXM</span><span class="sb-badge sb-mid" data-i18n="sk-mid">Intermédiaire</span></div>
+          <div class="sb-sk-row"><span>Iramuteq</span><span class="sb-badge sb-mid" data-i18n="sk-mid">Intermédiaire</span></div>
+          <div class="sb-sk-row"><span>SketchEngine</span><span class="sb-badge sb-mid" data-i18n="sk-mid">Intermédiaire</span></div>
+          <div class="sb-sk-row"><span>Python</span><span class="sb-badge sb-mid" data-i18n="sk-python-badge">Collecte de données textuelles</span></div>
         </div>
       </div>
     </aside>
