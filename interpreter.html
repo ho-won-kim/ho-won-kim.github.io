@@ -1344,7 +1344,20 @@
     .ch-obs  { background: #FF6F00; }
     .ch-cha  { background: #1565C0; }
 
-    /* Small variant used inside audio mission title rows */
+    .mission-subhead {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      padding: 14px 0 5px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 6px;
+      grid-column: 1 / -1;
+    }
+    .mission-subhead:first-child { padding-top: 0; }
+
+        /* Small variant used inside audio mission title rows */
     .mission-org-badge {
       padding: 2px 6px;
       font-size: 10px;
@@ -2048,6 +2061,12 @@
       'commercial': {
         fr: [
           {
+            date: '2026<br>09',
+            title: 'Timwork × LH — Salon BATIMAT · Interprétation trilingue',
+            lang: 'FR · EN · KO',
+            org: 'Timwork · 한국토지주택공사 (LH)'
+          },
+          {
             date: '2025<br>10',
             title: 'Interprétation d\'accompagnement — Visite d\'affaires Air Liquide &amp; France Hydrogène',
             lang: 'EN ↔ KO',
@@ -2086,6 +2105,12 @@
         ],
         en: [
           {
+            date: '2026<br>09',
+            title: 'Timwork × LH — BATIMAT Trade Show · Trilingual interpretation',
+            lang: 'FR · EN · KO',
+            org: 'Timwork · 한국토지주택공사 (LH)'
+          },
+          {
             date: '2025<br>10',
             title: 'Escort Interpretation — Air Liquide &amp; France Hydrogène Business Visit',
             lang: 'EN ↔ KO',
@@ -2123,6 +2148,12 @@
           }
         ],
         ko: [
+          {
+            date: '2026<br>09',
+            title: 'Timwork × LH — BATIMAT 박람회 통역',
+            lang: 'FR · EN · KO',
+            org: '한국토지주택공사 (LH) · Timwork'
+          },
           {
             date: '2025<br>10',
             title: '비즈니스 방문 통역 — Air Liquide 및 France Hydrogène',
@@ -2165,6 +2196,10 @@
       /* ── Card 03 — Traduction audiovisuelle ── */
       'audio': {
         fr: [
+          { divider: true, label: 'Interprétation de reportage' },
+          { date: '2026<br>07', title: '광주MBC — Reportage · [La route non empruntée] Ép. 1 « Paris et le désert français »', lang: 'FR → KO', org: '광주MBC', link: 'https://www.youtube.com/watch?v=YZM4i_DAFdI' },
+          { date: '2018<br>08', title: 'SBS Special — Ép. 519 · La petite table de Yeongmi', lang: 'FR → KO', org: 'SBS' },
+          { divider: true, label: 'Traduction audiovisuelle' },
           { date: '2025<br>12', title: 'EBS — Lecture, encore · Ép. 2 « À l\'ère de l\'IA, la lecture contre-attaque »', lang: 'FR → KO', org: 'EBS' },
           { date: '2025<br>08', title: 'KBS — World1945 · Ép. 3 « Le poids de la couronne, le dollar »', lang: 'FR → KO', org: 'KBS 1TV' },
           { date: '2022<br>10', title: 'JTBC — La Grande Table · Ménopause &amp; probiotiques YT1', lang: 'FR → KO', org: 'JTBC' },
@@ -2176,13 +2211,16 @@
           { date: '2019<br>04', title: 'MBC — Fake que vous croyiez · Faux réfugiés', lang: 'FR → KO', org: 'MBC' },
           { date: '2018<br>12', title: 'KBS — Docu-monde · Alimentation &amp; plan alimentaire local', lang: 'FR → KO', org: 'KBS 1TV' },
           { date: '2018<br>11', title: 'SBS — Ce que je voudrais savoir · Radon, la vérité d\'un village', lang: 'FR → KO', org: 'SBS' },
-          { date: '2018<br>08', title: 'SBS Special — Ép. 519 · La petite table de Yeongmi', lang: 'FR → KO', org: 'SBS' },
           { date: '2018<br>07', title: 'Channel A — Développement équilibré · Conditions d\'un pays heureux', lang: 'FR → KO', org: '채널A' },
           { date: '2018<br>05', title: 'JTBC — On part ensemble · Ép. 74 × Abnormal Summit', lang: 'FR → KO', org: 'JTBC' },
           { date: '2016<br>04', title: 'KBS — Media Inside · Photos d\'enfants sur les réseaux sociaux…', lang: 'FR → KO', org: 'KBS 1TV' },
           { date: '2015<br>02', title: 'KBS — Sisagihoekcheang · Rapport sur le harcèlement au travail', lang: 'FR → KO', org: 'KBS 1TV' }
         ],
         en: [
+          { divider: true, label: 'Field interpretation' },
+          { date: '2026<br>07', title: '광주MBC — Special Report · [Road Not Taken] Ep. 1 "Paris and the French Desert"', lang: 'FR → KO', org: '광주MBC', link: 'https://www.youtube.com/watch?v=YZM4i_DAFdI' },
+          { date: '2018<br>08', title: 'SBS Special · Ep. 519 — Yeongmi\'s Small Table', lang: 'FR → KO', org: 'SBS' },
+          { divider: true, label: 'Audiovisual translation' },
           { date: '2025<br>12', title: 'EBS — Reading, again · Ep. 2 "In the AI Age, Reading Fights Back"', lang: 'FR → KO', org: 'EBS' },
           { date: '2025<br>08', title: 'KBS — World1945 · Ep. 3 "The Weight of the Crown, the Dollar"', lang: 'FR → KO', org: 'KBS 1TV' },
           { date: '2022<br>10', title: 'JTBC — The Great Table · Menopause &amp; probiotic YT1', lang: 'FR → KO', org: 'JTBC' },
@@ -2194,13 +2232,16 @@
           { date: '2019<br>04', title: 'MBC — Fake You Believed · Fake Refugees', lang: 'FR → KO', org: 'MBC' },
           { date: '2018<br>12', title: 'KBS — Docu-World · Community Food Plan', lang: 'FR → KO', org: 'KBS 1TV' },
           { date: '2018<br>11', title: 'SBS — I Want to Know · Radon, the Truth of a Vanished Village', lang: 'FR → KO', org: 'SBS' },
-          { date: '2018<br>08', title: 'SBS Special · Ep. 519 — Yeongmi\'s Small Table', lang: 'FR → KO', org: 'SBS' },
           { date: '2018<br>07', title: 'Channel A — Balanced Development · Conditions of a Happy Nation', lang: 'FR → KO', org: '채널A' },
           { date: '2018<br>05', title: 'JTBC — Together We Rise · Ep. 74 × Abnormal Summit', lang: 'FR → KO', org: 'JTBC' },
           { date: '2016<br>04', title: 'KBS — Media Inside · Posting Children\'s Photos on Social Media…', lang: 'FR → KO', org: 'KBS 1TV' },
           { date: '2015<br>02', title: 'KBS — Sisagihoekcheang · Workplace Harassment Report', lang: 'FR → KO', org: 'KBS 1TV' }
         ],
         ko: [
+          { divider: true, label: '취재 통역' },
+          { date: '2026<br>07', title: '광주MBC — 뉴스데스크 · [가지 않은 길] 1편 「파리와 프랑스 사막」', lang: 'FR → KO', org: '광주MBC', link: 'https://www.youtube.com/watch?v=YZM4i_DAFdI' },
+          { date: '2018<br>08', title: 'SBS 스페셜 · 519회 영미네 작은 식탁', lang: 'FR → KO', org: 'SBS' },
+          { divider: true, label: '영상 번역' },
           { date: '2025<br>12', title: 'EBS — 다시, 읽기로 · 2부 AI 시대, 읽기의 반격', lang: 'FR → KO', org: 'EBS' },
           { date: '2025<br>08', title: 'KBS — 월드1945 · 3부 왕관의 무게, 달러', lang: 'FR → KO', org: 'KBS 1TV' },
           { date: '2022<br>10', title: 'JTBC — 위대한 식탁 · 갱년기와 유산균 YT1', lang: 'FR → KO', org: 'JTBC' },
@@ -2212,7 +2253,6 @@
           { date: '2019<br>04', title: 'MBC — 당신이 믿었던 페이크 · 당신이 믿었던 가짜 난민', lang: 'FR → KO', org: 'MBC' },
           { date: '2018<br>12', title: 'KBS — 다큐세상 · 푸드플랜 우리를 지키는 밥상', lang: 'FR → KO', org: 'KBS 1TV' },
           { date: '2018<br>11', title: 'SBS — 그것이 알고 싶다 · 라돈폰, 사라진 마을의 진실', lang: 'FR → KO', org: 'SBS' },
-          { date: '2018<br>08', title: 'SBS 스페셜 · 519회 영미네 작은 식탁', lang: 'FR → KO', org: 'SBS' },
           { date: '2018<br>07', title: '채널A — 특별기획 균형 발전 · 행복한 나라의 조건', lang: 'FR → KO', org: '채널A' },
           { date: '2018<br>05', title: 'JTBC — 뭉쳐야 뜬다 · 74회 × 비정상회담', lang: 'FR → KO', org: 'JTBC' },
           { date: '2016<br>04', title: 'KBS — 미디어 인사이드 · SNS에 자녀 사진 올렸다가…', lang: 'FR → KO', org: 'KBS 1TV' },
@@ -2241,7 +2281,9 @@
        badge rendered inline before the title text, broadcaster prefix stripped. */
     function buildAudioTitleHtml(m) {
       var cls = ORG_BADGE_MAP[m.org];
-      if (!cls) return '<p class="mission-title">' + m.title + '</p>';
+      var linkOpen  = m.link ? '<a href="' + m.link + '" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">' : '';
+      var linkClose = m.link ? '</a>' : '';
+      if (!cls) return '<p class="mission-title">' + linkOpen + m.title + linkClose + '</p>';
 
       var badgeLabel, titleRest;
       var sepIdx = m.title.indexOf(' — ');
@@ -2258,7 +2300,7 @@
 
       return '<p class="mission-title">' +
         '<span class="channel-badge mission-org-badge ' + cls + '">' + badgeLabel + '</span>' +
-        '<span class="mission-title-text">' + titleRest + '</span>' +
+        linkOpen + '<span class="mission-title-text">' + titleRest + '</span>' + linkClose +
       '</p>';
     }
 
@@ -2270,6 +2312,9 @@
         if (!list) return;
         var items = (MISSIONS[key][lang] || MISSIONS[key].fr);
         list.innerHTML = items.map(function(m) {
+          if (m.divider) {
+            return '<div class="mission-subhead">' + m.label + '</div>';
+          }
           var titleHtml = (key === 'audio')
             ? buildAudioTitleHtml(m)
             : '<p class="mission-title">' + m.title + '</p>';
