@@ -508,6 +508,8 @@
     .edu-card-note { font-size: 0.72rem; color: var(--ink-2); margin-top: 6px; }
     @media (max-width: 640px) { .edu-compact-grid { grid-template-columns: 1fr; } }
     .credits-note { font-size: 0.74rem; color: var(--ink-3); margin-top: 14px; font-style: italic; line-height: 1.6; }
+    .credits-subhead { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #111; padding: 14px 0 5px; border-bottom: 1px solid var(--border); margin-bottom: 2px; }
+    .credits-subhead:first-child { padding-top: 0; }
     html[lang="ko"] .credits-note { display: none; }
 
     /* ════════════════════════════════════════════════════
@@ -1469,6 +1471,13 @@
         </div>
         <div class="tl appear">
           <div class="tl-item">
+            <div class="tl-yr">2026 · 09</div>
+            <div>
+              <div class="tl-title" data-i18n-html="pro-batimat-title">Interprète — Salon BATIMAT · Interprétation trilingue <span style="font-weight:300;color:var(--ink-2)">(Français–Anglais–Coréen)</span></div>
+              <div class="tl-sub" data-i18n="pro-batimat-sub">한국토지주택공사 (LH) · Timwork</div>
+            </div>
+          </div>
+          <div class="tl-item">
             <div class="tl-yr">2025 · 10</div>
             <div>
               <div class="tl-title" data-i18n-html="pro-6-title">Interprète — Visite d'affaires à Air Liquide et France Hydrogène <span style="font-weight:300;color:var(--ink-2)">(Anglais–Coréen)</span></div>
@@ -1521,11 +1530,14 @@
         <div class="appear">
           <div class="credits-header" data-i18n="credits-note"></div>
           <div class="credits-list">
+            <div class="credits-subhead" data-i18n="credits-field-head">취재 통역</div>
+            <div class="credit-row"><span class="credit-yr">2026 · 07</span><span class="credit-ch ch-mbc">MBC</span><span class="credit-prog">뉴스데스크 · [가지 않은 길] 1편</span><span class="credit-ep"><a href="https://www.youtube.com/watch?v=YZM4i_DAFdI" target="_blank">— 파리와 프랑스 사막 (광주MBC)</a></span></div>
+            <div class="credit-row"><span class="credit-yr">2018 · 08</span><span class="credit-ch ch-sbs">SBS</span><span class="credit-prog">SBS 스페셜</span><span class="credit-ep"><a href="https://programs.sbs.co.kr/culture/sbsspecial/clip/80292/22000289864" target="_blank">— 519회 영미네 작은 식탁</a></span></div>
+            <div class="credits-subhead" data-i18n="credits-avt-head">영상 번역</div>
             <div class="credit-row"><span class="credit-yr">2015 · 02</span><span class="credit-ch ch-kbs">KBS</span><span class="credit-prog">시사기획 창</span><span class="credit-ep"><a href="https://news.kbs.co.kr/news/view.do?ncd=3020483" target="_blank">— 직장 내 괴롭힘 보고서, 인격 없는 일터</a></span></div>
             <div class="credit-row"><span class="credit-yr">2016 · 04</span><span class="credit-ch ch-kbs">KBS</span><span class="credit-prog">미디어 인사이드</span><span class="credit-ep"><a href="https://news.kbs.co.kr/news/view.do?ncd=3258489" target="_blank">— SNS에 자녀 사진 무심코 올렸다가…</a></span></div>
             <div class="credit-row"><span class="credit-yr">2018 · 05</span><span class="credit-ch ch-jtbc">JTBC</span><span class="credit-prog">뭉쳐야 뜬다</span><span class="credit-ep"><a href="https://www.youtube.com/watch?v=44oIcX__j_s" target="_blank">— 74회 뭉쳐야 뜬다 × 비정상회담</a></span></div>
             <div class="credit-row"><span class="credit-yr">2018 · 07</span><span class="credit-ch ch-channela">채널A</span><span class="credit-prog">특별기획 균형 발전</span><span class="credit-ep"><a href="http://www.ichannela.com/program/template/video_detailPage.do?publishId=000000107623&amp;subCateCode=050303" target="_blank">— 행복한 나라의 조건</a></span></div>
-            <div class="credit-row"><span class="credit-yr">2018 · 08</span><span class="credit-ch ch-sbs">SBS</span><span class="credit-prog">SBS 스페셜</span><span class="credit-ep"><a href="https://programs.sbs.co.kr/culture/sbsspecial/clip/80292/22000289864" target="_blank">— 519회 영미네 작은 식탁</a></span></div>
             <div class="credit-row"><span class="credit-yr">2018 · 11</span><span class="credit-ch ch-sbs">SBS</span><span class="credit-prog">그것이 알고 싶다</span><span class="credit-ep"><a href="https://programs.sbs.co.kr/culture/unansweredquestions/vod/55075/22000304232" target="_blank">— 라두 폰, 사라진 마을의 진실 — 천재(天災)인가 인재(人災)인가</a></span></div>
             <div class="credit-row"><span class="credit-yr">2018 · 12</span><span class="credit-ch ch-kbs">KBS</span><span class="credit-prog">다큐세상</span><span class="credit-ep"><a href="https://www.youtube.com/watch?v=wzaI0TaAS2c" target="_blank">— 푸드플랜 우리를 지키는 밥상</a></span></div>
             <div class="credit-row"><span class="credit-yr">2019 · 04</span><span class="credit-ch ch-mbc">MBC</span><span class="credit-prog">당신이 믿었던 페이크</span><span class="credit-ep"><a href="https://www.youtube.com/watch?v=eKEdSEWcT98" target="_blank">— 당신이 믿었던 가짜 난민</a></span></div>
@@ -1896,6 +1908,8 @@
         'pro-9-sub': 'Korea International Trade Association (Daegwang F&amp;G)',
         'pro-10-title': 'Interprète — Salon VivaTech Paris <span style="font-weight:300;color:var(--ink-2)">(Français-Anglais–Coréen)</span>',
         'pro-10-sub': 'Ministry of SMEs and Startups / Korea Institute of Startup and Entrepreneurship Development',
+        'pro-batimat-title': 'Interprète — Salon BATIMAT · Interprétation trilingue <span style="font-weight:300;color:var(--ink-2)">(Français–Anglais–Coréen)</span>',
+        'pro-batimat-sub': '한국토지주택공사 (LH) · Timwork',
         'pro-11-title': 'Interprète — Réunions d\'affaires K-Content Expo <span style="font-weight:300;color:var(--ink-2)">(Anglais–Coréen)</span>',
         'pro-11-sub': 'Ministry of Culture, Sports and Tourism / Korea Creative Content Agency (Nonsense Co., Ltd)',
         'pro-group-3': 'Traduction médiatique & de contenus',
@@ -1950,7 +1964,9 @@
         'mode-research': 'Recherche',
         'mode-translation': 'Traduction & Interprétation',
         'mode-research-note': '+ 9 autres missions de traduction & médias',
-        'credits-note': 'Sous-titrage et recherche audiovisuelle (français–coréen) — documentaires, grands reportages et émissions de divertissement diffusés sur les grandes chaînes coréennes (KBS, SBS, MBC, JTBC, EBS, OBS), 2015–2025.',
+        'credits-note': 'Sous-titrage et recherche audiovisuelle (français–coréen) — documentaires, grands reportages et émissions de divertissement diffusés sur les grandes chaînes coréennes (KBS, SBS, MBC, JTBC, EBS, OBS), 2015–2026.',
+        'credits-field-head': 'Interprétation de reportage',
+        'credits-avt-head': 'Traduction audiovisuelle',
         'nav-pro-public': 'Publique',
         'nav-pro-commercial': 'Commercial',
         'nav-pro-media': 'Audiovisuel',
@@ -2128,6 +2144,8 @@
         'pro-9-sub': 'Korea International Trade Association (Daegwang F&amp;G)',
         'pro-10-title': 'Interpreter — VivaTech Paris Trade Show <span style="font-weight:300;color:var(--ink-2)">(French-English–Korean)</span>',
         'pro-10-sub': 'Ministry of SMEs and Startups / Korea Institute of Startup and Entrepreneurship Development',
+        'pro-batimat-title': 'Interpreter — BATIMAT Trade Show · Trilingual interpretation <span style="font-weight:300;color:var(--ink-2)">(French–English–Korean)</span>',
+        'pro-batimat-sub': '한국토지주택공사 (LH) · Timwork',
         'pro-11-title': 'Interpreter — K-Content Expo Business Meetings <span style="font-weight:300;color:var(--ink-2)">(English–Korean)</span>',
         'pro-11-sub': 'Ministry of Culture, Sports and Tourism / Korea Creative Content Agency (Nonsense Co., Ltd)',
         'pro-group-3': 'Media & Content Translation',
@@ -2172,7 +2190,9 @@
         'th-d1': 'Public & Diplomatic Interpreting',
         'th-d2': 'Commercial Interpreting',
         'th-d3': 'Media & Content Translation',
-        'credits-note': 'French–Korean subtitling and audiovisual research for documentaries, current affairs and entertainment programmes broadcast on major Korean networks (KBS, SBS, MBC, JTBC, EBS, OBS), 2015–2025.',
+        'credits-note': 'French–Korean subtitling and audiovisual research for documentaries, current affairs and entertainment programmes broadcast on major Korean networks (KBS, SBS, MBC, JTBC, EBS, OBS), 2015–2026.',
+        'credits-field-head': 'Field Interpretation',
+        'credits-avt-head': 'Audiovisual Translation',
         'nav-pro-public': 'Public',
         'nav-pro-commercial': 'Commercial',
         'nav-pro-media': 'Audiovisual',
@@ -2364,6 +2384,8 @@
         'pro-9-sub': '한국무역협회 (Daegwang F&G)',
         'pro-10-title': '파리 VivaTech 박람회 <span style="font-weight:300;color:var(--ink-2)">(프랑스어-영어–한국어)</span>',
         'pro-10-sub': '중소벤처기업부 / 창업진흥원',
+        'pro-batimat-title': 'BATIMAT 박람회 비즈니스 미팅 통역 <span style="font-weight:300;color:var(--ink-2)">(프랑스어–영어–한국어)</span>',
+        'pro-batimat-sub': '한국토지주택공사 (LH) · Timwork',
         'pro-11-title': 'K-Content Expo 비즈니스 미팅 <span style="font-weight:300;color:var(--ink-2)">(영어–한국어)</span>',
         'pro-11-sub': '문화체육관광부 / 한국콘텐츠진흥원 (Nonsense Co., Ltd)',
         'pro-group-3': '미디어 & 콘텐츠 번역',
@@ -2409,6 +2431,8 @@
         'th-d2': '비즈니스 통역',
         'th-d3': '미디어 & 콘텐츠 번역',
         'credits-note': '',
+        'credits-field-head': '취재 통역',
+        'credits-avt-head': '영상 번역',
         'nav-pro-public': '공공·외교 통역',
         'nav-pro-commercial': '비즈니스 통역',
         'nav-pro-media': '방송 번역',
