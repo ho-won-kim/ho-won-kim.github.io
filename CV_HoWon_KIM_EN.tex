@@ -1,0 +1,428 @@
+%% CV — Ho Won KIM
+%% pdfLaTeX · A4
+
+\documentclass[10.5pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=3em
+\usepackage[
+  top=1.8cm, bottom=1.8cm,
+  left=2.0cm, right=2.0cm
+]{geometry}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+
+% ── Colors ─────────────────────────────────────────────────────────────────
+\definecolor{navy}{RGB}{22, 40, 75}
+\definecolor{darkgray}{RGB}{80, 80, 80}
+\definecolor{lightgray}{RGB}{180, 180, 180}
+
+\hypersetup{colorlinks=true, urlcolor=navy, linkcolor=navy}
+
+% ── No header/footer ──────────────────────────────────────────────────────
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ── Date column width ─────────────────────────────────────────────────────
+\newlength{\datecol}
+\setlength{\datecol}{2.6cm}
+\newlength{\contentcol}
+\setlength{\contentcol}{\textwidth}
+\addtolength{\contentcol}{-\datecol}
+\addtolength{\contentcol}{-1.2em}  % column sep
+
+% ── Utility commands ──────────────────────────────────────────────────────
+
+% Main entry row: date | content
+\newcommand{\cvrow}[2]{%
+  \noindent
+  \parbox[t]{\datecol}{\raggedleft\textcolor{darkgray}{\small #1}}%
+  \hspace{1.2em}%
+  \parbox[t]{\contentcol}{\sloppy\hbadness=10000 #2}%
+  \par\vspace{0.6em}%
+}
+
+% Main section
+\newcommand{\cvsection}[1]{%
+  \vspace{10pt}%
+  {\color{navy}\large\bfseries\MakeUppercase{#1}}%
+  \vspace{2pt}%
+  {\color{navy}\hrule height 0.8pt}%
+  \vspace{6pt}%
+}
+
+% Subsection
+\newcommand{\cvsubsection}[1]{%
+  \vspace{5pt}%
+  {\small\bfseries\textcolor{darkgray}{\MakeUppercase{#1}}}%
+  \vspace{3pt}\par%
+}
+
+% Entry without date (for simple lists)
+\newcommand{\cvitem}[2]{%
+  \noindent
+  \parbox[t]{\datecol}{\raggedleft\textcolor{darkgray}{\small #1}}%
+  \hspace{1.2em}%
+  \parbox[t]{\contentcol}{\sloppy\hbadness=10000 #2}%
+  \par\vspace{0.6em}%
+}
+
+% ══════════════════════════════════════════════════════════════════════════
+\begin{document}
+% ══════════════════════════════════════════════════════════════════════════
+
+% ── HEADER ────────────────────────────────────────────────────────────────
+\begin{center}
+  {\huge\bfseries\color{navy} Ho Won \textsc{Kim}}\\[10pt]
+  {\large PhD Candidate in Language Sciences · Université Sorbonne Nouvelle}\\[6pt]
+  {\small
+    Paris, France
+    \quad\textcolor{lightgray}{|}\ \
+    \href{mailto:ho-won.kim@sorbonne-nouvelle.fr}{ho-won.kim@sorbonne-nouvelle.fr}
+    \quad\textcolor{lightgray}{|}\ \
+    \href{https://howon-kim.com}{howon-kim.com}
+  }
+\end{center}
+
+\vspace{8pt}
+
+{PhD Candidate at CLESTHIA (EA~7345), Université Sorbonne Nouvelle, specializing in discourse
+analysis and semantics. Research focuses on TotalEnergies' institutional discourse in the context
+of the energy transition, using an enunciative and modal approach.}
+\vspace{4pt}
+\\
+{\small\itshape\color{darkgray}
+Keywords: Discourse Analysis  ·  Semantics  ·  Pragmatics  ·  Digital Discourse  ·  Environmental Discourse}
+\vspace{6pt}
+
+
+% ── EDUCATION ─────────────────────────────────────────────────────────────
+\cvsection{Education}
+
+\cvrow{2024 -- present}{%
+  \textbf{Doctorate in Language Sciences}
+  \textit{(2\textsuperscript{nd} year -- ongoing)}\\
+  CLESTHIA (EA~7345) · Université Sorbonne Nouvelle\\
+  {\small   · Thesis: \textit{``Modal Construction of Reality in Energy Transition Discourse:
+  Analysis of TotalEnergies' Discourse (2019--2025)''}\\
+    · Supervisor: Georgeta Cislaru}}
+
+\cvrow{2023 -- 2024}{%
+  \textbf{Doctorate in Language Sciences}
+  \textit{(1\textsuperscript{st} year)}\\
+  MoDyCo (UMR~7114) · Université Paris Nanterre}
+
+\cvrow{2020 -- 2023}{%
+  \textbf{Master's Degree in French Language and Literature}\\
+  Seoul National University\\
+  {\small   · Thesis: \textit{``Analysis of French Climate Discourse:
+  Nomination and its Lexical Meaning''}\\
+   · Supervisor: Seong Heon Lee}}
+
+\cvrow{2019 -- 2020}{%
+  \textbf{Exchange Student} · Sciences Po Paris}
+
+\cvrow{2014 -- 2020}{%
+  \textbf{Bachelor's Degree in French Language and Literature}\\
+  Seoul National University\\
+  {\small   · \textit{Summa cum Laude}
+  \\· PPE Specialization (Philosophy--Politics--Economics)\\
+  · Dean's List Thesis}}
+
+% ── PUBLICATIONS ──────────────────────────────────────────────────────────
+\cvsection{Works \& Publications}
+
+\cvsubsection{Journal Articles}
+
+\cvrow{2019}{%
+  Kim Ho Won, Choi Yun Son --- ``Critical Discourse Analysis of the French Press Coverage
+  of the Yellow Vest Movement.'' \textit{Études de Langue et Littérature Françaises}
+  (Korean Journal), 119, pp.~215--242.}
+
+\cvsubsection{Conference \& Workshop Papers}
+
+\cvrow{2026 · 06}{%
+  \textbf{``Building a Multilingual Pipeline for the Automated Recognition of Online
+  Polemics: From Marker Identification to Data Collection''}\\
+  {\small\textit{Dissemination Event ``Language Rights, Social Inclusion \& Polarised Discourses
+  in Europe'' · ACVALIN · ARENAS · POLAR}
+  · University of Cyprus}}
+
+\cvrow{2026 · 06}{%
+  \textbf{``Modality and Aspects of Transition: Words of Sustainable Development
+  in TotalEnergies' Sustainability Reports''}\\
+  {\small\textit{Workshop ``Around the Words of Sustainable Development:
+  Translations, Circulations, Usages and Effects''}
+  · International Review of Development Studies (RIED)}}
+
+\cvrow{2026 · 04}{%
+  \textbf{``Modal Constructions of Reality and their Collisions:
+  Analysis of TotalEnergies' Discourse (2019--2025)''}\\
+  {\small\textit{Workshop}
+  · CLESTHIA (EA~7345), Sorbonne Nouvelle University}}
+
+\cvrow{2025 · 08}{%
+  \textbf{``Pragmatic Use of Korean Honorific Expressions
+  \textit{sugohasieossseubnida} and \textit{gosaenghasieossseubnida}''}\\
+  {\small\textit{International Conference PHRASEOPRAG}
+  · Hokkaido University, Sapporo, Japan}}
+
+\cvrow{2023 · 12}{%
+  \textbf{``Sustainable, Green, Renewable: Omnipresent Modification,
+  Generalization and Semantic Simplification''}\\
+  {\small\textit{PhD Students' Workshop}
+  · MoDyCo (UMR~7114), Paris Nanterre University}}
+
+\cvsubsection{Seminar Presentations}
+
+\cvrow{2026 · 03}{%
+  \textbf{``Modal Construction of Reality and Discursive Strategies: A Linguistic Analysis
+  of TotalEnergies' Annual General Meetings (2019--2025)''}\\
+  {\small\textit{Opération DDD Seminar}
+  · CLESTHIA (EA~7345), Sorbonne Nouvelle University}}
+
+\cvrow{2026 · 03}{%
+  \textbf{``Fossil Fuel Industry Discourse and its Societal Circulation''}\\
+  {\small\textit{SCAIRY Project Seminar} · YUFE Alliance}}
+
+\cvrow{2025 · 06}{%
+  \textbf{``Between Phraseology and Politeness: A Pragmatic Study of
+  \textit{sugohasieossseubnida} and \textit{gosaenghasieossseubnida}
+  in Contemporary Korean''}\\
+  {\small\textit{Seminar}
+  · Korean Academic Society of Philosophy in Paris}}
+
+\cvrow{2025 · 03}{%
+  \textbf{``The Naming of Energies in Corporate Discourses ---
+  The Case of TotalEnergies''}\\
+  {\small\textit{Doctoral Seminar}
+  · CLESTHIA (EA~7345), Sorbonne Nouvelle University}}
+
+% ── RESEARCH PROJECTS ─────────────────────────────────────────────────────
+\cvsection{Research Projects}
+
+\cvrow{2026 -- present}{%
+  \textbf{Operation ``Atlas: A Critical Discursive Map of Sustainable Development''}
+  · \textbf{Member}\\
+  {\small CLESTHIA (EA~7345), Sorbonne Nouvelle University\\
+   · Regular participation in the operation's seminars and scientific activities,
+  including the presentation of a research paper.}}
+
+\cvrow{2025 -- 2027}{%
+  \textbf{POLAR Project}
+  \textit{(Polemics in Online Language and Automated Recognition)}
+  · \textbf{Coordination Officer}\\
+  {\small YUFE Alliance · Sorbonne Nouvelle University,
+  University of Cyprus, University of Antwerp\\
+   · Administrative and organizational coordination; support for planning,
+  activity monitoring, and implementation of the research program.}}
+
+\cvrow{2025 -- 2027}{%
+  \textbf{SCAIRY Project}
+  \textit{(Sustainable Climate-Change Action via Interdisciplinary Research in YUFE)}
+  · \textbf{Junior Investigator}\\
+  {\small YUFE Alliance\\
+   · Participation in the interdisciplinary project on climate action;
+  presentation on fossil fuel company discourses.
+  Selected as participant for the BioYUFE Annual Meeting 2026.}}
+
+\cvrow{2024 -- present}{%
+  \textbf{Operation ``Discourses of Sustainable Development:
+  Circulations and Tensions''}
+  · \textbf{Member}\\
+  {\small CLESTHIA (EA~7345), Sorbonne Nouvelle University\\
+   · Regular participation in the operation's seminars and scientific activities,
+  including the presentation of a research paper.}}
+
+% ── ACADEMIC EVENT ORGANIZATION ───────────────────────────────────────────
+\cvsection{Academic Event Organization}
+
+\cvsubsection{Conferences}
+
+\cvrow{2026 · 12}{%
+  \textbf{International Conference
+  ``The Expression of Indebtedness in Linguistics''}\\
+  {\small CEL (UR~1663) · CLESTHIA (EA~7345) · ED~661
+  · European Union Next-GenerationEU\\
+   · Coordination of the scientific and logistical organization of the conference.}}
+
+\cvrow{2024 · 10}{%
+  \textbf{International Conference ``ColDoc2024''}\\
+  {\small MoDyCo (UMR~7114), Paris Nanterre University\\
+   · Organization of the young researchers and doctoral students conference in linguistics.}}
+
+\cvrow{2024 · 06}{%
+  \textbf{International Conference ``SigWriting 2024''}\\
+  {\small European Association for Research on Learning and Instruction (EARLI)\\
+   · Organization of the research school; session chair and moderation.}}
+
+\cvsubsection{Workshops}
+
+\cvrow{2026 · 04}{%
+  \textbf{PhD Students' Workshop}\\
+  CLESTHIA (EA~7345), Sorbonne Nouvelle University\\
+  {\small  · General organization; session chair, coordination and moderation.}}
+
+% ── TEACHING EXPERIENCE ───────────────────────────────────────────────────
+\cvsection{Teaching \& Supervision Experience}
+
+\cvsubsection{Lecturer}
+
+\cvrow{2026--27 · S2}{%
+  \textbf{Introduction to French Linguistics II} (L1, 21h)\\
+  LLFL, Sorbonne Nouvelle University\\
+  {\small  · Morphology and semantics.}}
+
+\cvrow{2026--27 · S1}{%
+  \textbf{Introduction to French Linguistics I} (L1, 14h)\\
+  LLFL, Sorbonne Nouvelle University\\
+  {\small  · General introduction to linguistics; phonetics and phonology.}}
+
+\cvrow{2025--26 · S2}{%
+  \textbf{Introduction to French Linguistics II} (L1, 21h)\\
+  LLFL, Sorbonne Nouvelle University\\
+  {\small  · Morphology and semantics.}}
+
+\cvrow{2025--26 · S1}{%
+  \textbf{Introduction to French Linguistics I} (L1, 24h)\\
+  LLFL, Sorbonne Nouvelle University\\
+  {\small  · General introduction to linguistics; phonetics and phonology.}}
+
+\cvrow{2024--25 · S1}{%
+  \textbf{Lexical Semantics} (L3, 14h)\\
+  LLFL, Sorbonne Nouvelle University\\
+  {\small  · Semantic creativity: metaphor and metonymy,
+  deviation and lexicalization.}}
+
+\cvsubsection{Invited Guest Lectures}
+
+\cvrow{2025 · 07}{%
+  \textbf{Alumni Talk: Life in Research} (Undergraduate, 2h)\\
+  {\small SNU in Paris Summer School
+  (Seoul National University · Sorbonne Nouvelle University)}}
+
+\cvrow{2023 · 10}{%
+  \textbf{Discourse Analysis in its Social Representations (Ecrifore)}
+  (M1, 2h)\\ Paris Nanterre University\\
+  {\small  · Critical Discourse Analysis \& Systemic Functional Linguistics.}}
+
+\cvsubsection{Research Internship Supervision}
+
+\cvrow{2026}{%
+  \textbf{Co-supervision of a Master's Research Internship}\\
+  POLAR Research Project, Sorbonne Nouvelle University\\
+  {\small  · Scientific and methodological supervision of a second-year Master's student.}}
+
+\cvsubsection{Teaching Assistant}
+
+\cvrow{2021 -- 2022}{%
+  \textbf{Introduction to Computer Science} (L1, 60h)\\
+  Liberal Arts College, Seoul National University\\
+  {\small  · Python demonstration sessions · Q\&A sessions.}}
+
+\cvrow{2018 -- 2019}{%
+  \textbf{Life and Humanity} (L1, 15h)\\
+  College of Humanities, Seoul National University\\
+  {\small  · Program organization and coordination.}}
+
+\cvrow{2018 -- 2019}{%
+  \textbf{Ad Fontes} (Continuing Education, 60h)\\
+  College of Humanities, Seoul National University\\
+  {\small  · Humanities program manager for corporate executives in Korea.}}
+
+% ── GRANTS & AWARDS ───────────────────────────────────────────────────────
+\cvsection{Grants \& Awards}
+
+\cvitem{2023 -- 2026}{Doctoral Fellowship · \textit{PonyChung Foundation} (Sept. 2023 -- Aug. 2026)}
+\cvitem{2021 -- 2022}{Master's Fellowship · \textit{Woosan Foundation} (Jan. 2021 -- Dec. 2022)}
+\cvitem{2020 -- 2022}{Teaching and Research Fellowship · Seoul National University (4 semesters)}
+\cvitem{2014 -- 2020}{Merit Scholarship · Seoul National University (5 semesters of academic excellence)}
+
+% ── SELECTIVE INTERNATIONAL PROGRAMS ──────────────────────────────────────
+\cvsection{Selective International Programs}
+
+\cvrow{2020 · 01}{%
+  \textbf{SNU in Creative California} --- Winter Program\\
+  {\small Seoul National University · UC Irvine Paul Merage School of Business\\
+   · Selective international program on creative industries in California
+  --- video games, music, film and arts --- including a collective business project,
+  professional visits, and academic credit validation.}}
+
+\cvrow{2019 · 07}{%
+  \textbf{SNU in Paris} --- Summer Program\\
+  {\small Seoul National University · Université PSL\\
+   · Selective international program in humanities, social sciences, and French culture,
+  combining academic courses, cultural immersion in Paris,
+  and academic credit validation.}}
+
+% ── OTHER ACTIVITIES ──────────────────────────────────────────────────────
+\cvsection{Other Activities}
+
+\cvrow{2023 · 01}{%
+  \textbf{Research Visit}
+  · ATILF (UMR~7118, CNRS -- University of Lorraine), Nancy\\
+  {\small  · Scientific activities in lexicology under the supervision of Alain Polguère
+  (seminar, working meeting, lecture).}}
+
+\cvrow{2014 -- 2015}{%
+  \textbf{Volunteer Researcher on Workplace Harassment}\\
+  {\small Korean Lawyers for Public Interest and Human Rights (KLPH)\\
+   · Research on workplace harassment · translation of French legal codes and ordinances.}}
+
+% ── SKILLS & TOOLS ────────────────────────────────────────────────────────
+\cvsection{Skills \& Tools}
+
+\cvitem{Languages}{Korean \textit{(native)} · French \textit{(C2)} · English \textit{(C2)}}
+\cvitem{Corpus \& NLP}{TXM · Iramuteq · SketchEngine · Python}
+
+% ── ADDITIONAL TRAINING ───────────────────────────────────────────────────
+\cvsection{Additional Training}
+
+\cvrow{2024 · 06}{%
+  \textbf{Spring School ``Sens de l'écologie, écologie du sens''}\\
+  {\small  PLURIELLES (UR~24142), ICAR (UMR~5191) · Lyon · Active participant.}}
+
+\cvrow{2023 · 08}{%
+  \textbf{``Climate Reality Leadership''} \\
+  The Climate Reality Project · Seoul}
+
+\cvrow{2021 · 08}{%
+  \textbf{``Data Science Boot Camp''} \\
+  Graduate School of Data Science, Seoul National University\\
+  {\small   · Modules: ``Mathematics for Data Science'',
+  ``Programming for Data Science''.}}
+
+\cvrow{2019 · 08}{%
+  \textbf{Summer School of Linguistics}
+  \\ Korean Linguistics Society · Seoul\\
+  {\small   · Modules: ``Linguistic Statistics'', ``Semantics and Pragmatics'',
+  ``Psycholinguistics''.}}
+
+\cvrow{2019 · 09}{%
+  \textbf{``TensorFlow Developer''}
+\\   Continuing Education Center, Seoul National University}
+
+\cvrow{2019 · 06}{%
+  \textbf{``Python and Data Analysis''}
+\\   Continuing Education Center, Seoul National University}
+
+\cvrow{2019 · 05}{%
+  \textbf{``Introduction to Python for Machine Learning and Deep Learning''}\\
+  {\small   Center for Teaching and Learning Development,
+  Seoul National University}}
+
+\end{document}

@@ -1,0 +1,417 @@
+%% CV — Ho Won KIM
+%% XeLaTeX · A4
+
+\documentclass[10.5pt, a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{kotex}
+\usepackage{microtype}
+
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=3em
+\usepackage[
+  top=1.8cm, bottom=1.8cm,
+  left=2.0cm, right=2.0cm
+]{geometry}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+
+% ── 폰트 설정 ─────────────────────────────────────────────────────────────
+\setmainfont{Apple SD Gothic Neo}
+\setsansfont{Apple SD Gothic Neo}
+
+% ── 색상 ──────────────────────────────────────────────────────────────────
+\definecolor{navy}{RGB}{22, 40, 75}
+\definecolor{darkgray}{RGB}{80, 80, 80}
+\definecolor{lightgray}{RGB}{180, 180, 180}
+
+\hypersetup{colorlinks=true, urlcolor=navy, linkcolor=navy}
+
+% ── 헤더/푸터 없음 ────────────────────────────────────────────────────────
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ── 날짜 열 너비 ──────────────────────────────────────────────────────────
+\newlength{\datecol}
+\setlength{\datecol}{2.6cm}
+\newlength{\contentcol}
+\setlength{\contentcol}{\textwidth}
+\addtolength{\contentcol}{-\datecol}
+\addtolength{\contentcol}{-1.2em}  % 열 간격
+
+% ── 유틸리티 명령어 ───────────────────────────────────────────────────────
+
+% 주요 항목 행: 날짜 | 내용
+\newcommand{\cvrow}[2]{%
+  \noindent
+  \parbox[t]{\datecol}{\raggedleft\textcolor{darkgray}{\small #1}}%
+  \hspace{1.2em}%
+  \parbox[t]{\contentcol}{\sloppy\hbadness=10000 #2}%
+  \par\vspace{0.6em}%
+}
+
+% 주요 섹션
+\newcommand{\cvsection}[1]{%
+  \vspace{10pt}%
+  {\color{navy}\large\bfseries #1}%
+  \vspace{2pt}%
+  {\color{navy}\hrule height 0.8pt}%
+  \vspace{6pt}%
+}
+
+% 소제목
+\newcommand{\cvsubsection}[1]{%
+  \vspace{5pt}%
+  {\small\bfseries\textcolor{darkgray}{#1}}%
+  \vspace{3pt}\par%
+}
+
+% 날짜 없는 항목 (단순 목록용)
+\newcommand{\cvitem}[2]{%
+  \noindent
+  \parbox[t]{\datecol}{\raggedleft\textcolor{darkgray}{\small #1}}%
+  \hspace{1.2em}%
+  \parbox[t]{\contentcol}{\sloppy\hbadness=10000 #2}%
+  \par\vspace{0.6em}%
+}
+
+% ══════════════════════════════════════════════════════════════════════════
+\begin{document}
+% ══════════════════════════════════════════════════════════════════════════
+
+% ── 헤더 ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\huge\bfseries\color{navy} 김호원 (Ho Won \textsc{Kim})}\\[10pt]
+  {\large 언어과학 박사과정 · 소르본 누벨 대학교}\\[6pt]
+  {\small
+    파리, 프랑스
+    \quad\textcolor{lightgray}{|}\ \
+    \href{mailto:ho-won.kim@sorbonne-nouvelle.fr}{ho-won.kim@sorbonne-nouvelle.fr}
+    \quad\textcolor{lightgray}{|}\ \
+    \href{https://howon-kim.com}{howon-kim.com}
+  }
+\end{center}
+
+\vspace{8pt}
+
+{소르본 누벨 대학교 CLESTHIA (EA~7345) 소속 박사과정생. 담화 분석 및 의미론 전공.
+에너지 전환의 맥락에서 토탈에너지(TotalEnergies)의 기관 담화를 발화론·양태론적 접근으로 연구.}
+\vspace{4pt}
+\\
+{\small\itshape\color{darkgray}
+핵심어: 담화 분석  ·  의미론  ·  화용론  ·  디지털 담화  ·  환경 담화}
+\vspace{6pt}
+
+
+% ── 학력 ──────────────────────────────────────────────────────────────────
+\cvsection{학력}
+
+\cvrow{2024 -- 현재}{%
+  \textbf{언어과학 박사과정}
+  \textit{(2년차 -- 수학 중)}\\
+  CLESTHIA (EA~7345) · 소르본 누벨 대학교\\
+  {\small   · 논문: 「에너지 전환 담화에서의 현실의 양태적 구성:
+  토탈에너지의 담화 분석 (2019--2025)」\\
+    · 지도교수: Georgeta Cislaru}}
+
+\cvrow{2023 -- 2024}{%
+  \textbf{언어과학 박사과정}
+  \textit{(1년차)}\\
+  MoDyCo (UMR~7114) · 파리 낭테르 대학교}
+
+\cvrow{2020 -- 2023}{%
+  \textbf{불어불문학 석사}\\
+  서울대학교\\
+  {\small   · 논문: 「프랑스어 기후 담화 분석: 지시 명칭과 그 어휘적 의미」\\
+   · 지도교수: 이성헌}}
+
+\cvrow{2019 -- 2020}{%
+  \textbf{교환학생} · Sciences Po Paris (파리 정치대학)}
+
+\cvrow{2014 -- 2020}{%
+  \textbf{불어불문학 학사}\\
+  서울대학교\\
+  {\small   · 최우등 졸업 \textit{(Summa cum Laude)}
+  \\· 철학·정치·경제(PPE) 복수전공\\
+  · 우수 졸업논문}}
+
+% ── 연구 및 발표 ──────────────────────────────────────────────────────────
+\cvsection{연구 및 발표}
+
+\cvsubsection{학술지 논문}
+
+\cvrow{2019}{%
+  김호원, 최윤선 — 「노란 조끼 운동에 대한 프랑스 언론 담화의 비판적 담화 분석」.
+  \textit{『프랑스어문교육』} (한국학술지), 119호, pp.~215--242.}
+
+\cvsubsection{학술대회 및 워크숍 발표}
+
+\cvrow{2026 · 06}{%
+  \textbf{「온라인 논쟁의 자동인식을 위한 다국어 파이프라인 구축 :
+  마커 인식부터 데이터 수집까지」}\\
+  {\small\textit{결과 발표회 «유럽의 언어권, 사회적 포용, 그리고 양극화된 담론 —
+  ACVALIN·ARENAS·POLAR 공동 행사»}
+  · 키프로스 대학교 (사이프러스)}}
+
+\cvrow{2026 · 06}{%
+  \textbf{「전환의 양태와 상: 토탈에너지의 지속가능성 보고서에 나타나는
+  지속가능한 발전 어휘」}\\
+  {\small\textit{워크숍 「지속가능한 발전을 둘러싼 말들:
+  번역, 순환, 용법과 효과」}
+  · 국제 개발 연구 학술지 (RIED)}}
+
+\cvrow{2026 · 04}{%
+  \textbf{「현실의 양태적 구성과 그 충돌:
+  토탈에너지의 담화 분석 (2019--2025)」}\\
+  {\small\textit{연구일}
+  · CLESTHIA (EA~7345), 소르본 누벨 대학교}}
+
+\cvrow{2025 · 08}{%
+  \textbf{「한국어 경어 표현 \textit{수고하셨습니다}와
+  \textit{고생하셨습니다}의 화용론적 사용」}\\
+  {\small\textit{국제 학술대회 PHRASEOPRAG}
+  · 홋카이도 대학교, 삿포로, 일본}}
+
+\cvrow{2023 · 12}{%
+  \textbf{「Durable, Vert, Renouvelable: 편재하는 수식어,
+  일반화와 의미론적 단순화」}\\
+  {\small\textit{박사과정생의 날}
+  · MoDyCo (UMR~7114), 파리 낭테르 대학교}}
+
+\cvsubsection{세미나 발표}
+
+\cvrow{2026 · 03}{%
+  \textbf{「현실의 양태적 구성과 담화 전략: 토탈에너지 주주총회의
+  언어학적 분석 (2019--2025)」}\\
+  {\small\textit{Opération DDD 세미나}
+  · CLESTHIA (EA~7345), 소르본 누벨 대학교}}
+
+\cvrow{2026 · 03}{%
+  \textbf{「화석 연료 산업 담화와 그 사회적 순환」}\\
+  {\small\textit{SCAIRY 프로젝트 세미나} · YUFE Alliance}}
+
+\cvrow{2025 · 06}{%
+  \textbf{「어휘론과 공손성 사이: 현대 한국어에서의 \textit{수고하셨습니다}와
+  \textit{고생하셨습니다}의 화용론적 연구」}\\
+  {\small\textit{세미나}
+  · 파리 한국 철학 학술회}}
+
+\cvrow{2025 · 03}{%
+  \textbf{「기업 담화에서의 에너지 명명 —
+  토탈에너지 사례」}\\
+  {\small\textit{박사 세미나}
+  · CLESTHIA (EA~7345), 소르본 누벨 대학교}}
+
+% ── 연구 프로젝트 ─────────────────────────────────────────────────────────
+\cvsection{연구 프로젝트}
+
+\cvrow{2026 -- 현재}{%
+  \textbf{「지속가능발전 담론에 대한 비판적 담론 지도」 연구 그룹}
+  · \textbf{멤버}\\
+  {\small CLESTHIA (EA~7345), 소르본 누벨 대학교\\
+   · 세미나 및 학술 활동 정기 참여; 연구 발표 포함.}}
+
+\cvrow{2025 -- 2027}{%
+  \textbf{POLAR 프로젝트}
+  \textit{(Polemics in Online Language and Automated Recognition)}
+  · \textbf{조정 담당자}\\
+  {\small YUFE Alliance · 소르본 누벨 대학교,
+  키프로스 대학교, 앤트워프 대학교\\
+   · 학술·행정 조정; 활동 계획, 이행 및 연구 프로그램 지원.}}
+
+\cvrow{2025 -- 2027}{%
+  \textbf{SCAIRY 프로젝트}
+  \textit{(Sustainable Climate-Change Action via Interdisciplinary Research in YUFE)}
+  · \textbf{신진연구자}\\
+  {\small YUFE Alliance\\
+   · 기후 행동 관련 학제간 프로젝트 참여; 화석 연료 기업 담화 발표.
+  BioYUFE Annual Meeting 2026 참가자로 선발.}}
+
+\cvrow{2024 -- 현재}{%
+  \textbf{「지속가능한 발전의 담화: 순환과 긴장」 연구 운영}
+  · \textbf{멤버}\\
+  {\small CLESTHIA (EA~7345), 소르본 누벨 대학교\\
+   · 세미나 및 학술 활동 정기 참여; 연구 발표 포함.}}
+
+% ── 학술 행사 기획 ────────────────────────────────────────────────────────
+\cvsection{학술 행사 기획}
+
+\cvsubsection{국제 학술대회}
+
+\cvrow{2026 · 12}{%
+  \textbf{국제 학술대회
+  「The Expression of Indebtedness in Linguistics」}\\
+  {\small CEL (UR~1663) · CLESTHIA (EA~7345) · ED~661
+  · European Union Next-GenerationEU\\
+   · 학술·행정 기획 전반 조정.}}
+
+\cvrow{2024 · 10}{%
+  \textbf{국제 학술대회 「ColDoc2024」}\\
+  {\small MoDyCo (UMR~7114), 파리 낭테르 대학교\\
+   · 언어학 신진 연구자 및 박사과정생 학술대회 기획.}}
+
+\cvrow{2024 · 06}{%
+  \textbf{국제 학술대회 「SigWriting 2024」}\\
+  {\small European Association for Research on Learning and Instruction (EARLI)\\
+   · 연구 학교 기획; 세션 좌장 및 사회.}}
+
+\cvsubsection{워크숍 및 연구일}
+
+\cvrow{2026 · 04}{%
+  \textbf{박사과정생의 날}\\
+  CLESTHIA (EA~7345), 소르본 누벨 대학교\\
+  {\small  · 전반 기획; 세션 좌장, 조정 및 사회.}}
+
+% ── 강의 경력 ─────────────────────────────────────────────────────────────
+\cvsection{강의 및 지도 경력}
+
+\cvsubsection{강의 담당}
+
+\cvrow{2026--27 · S2}{%
+  \textbf{프랑스어 언어학 입문 II} (학부 1학년, 21h)\\
+  LLFL, 소르본 누벨 대학교\\
+  {\small  · 형태론 및 의미론.}}
+
+\cvrow{2026--27 · S1}{%
+  \textbf{프랑스어 언어학 입문 I} (학부 1학년, 14h)\\
+  LLFL, 소르본 누벨 대학교\\
+  {\small  · 언어학 일반 입문; 음성학 및 음운론.}}
+
+\cvrow{2025--26 · S2}{%
+  \textbf{프랑스어 언어학 입문 II} (학부 1학년, 21h)\\
+  LLFL, 소르본 누벨 대학교\\
+  {\small  · 형태론 및 의미론.}}
+
+\cvrow{2025--26 · S1}{%
+  \textbf{프랑스어 언어학 입문 I} (학부 1학년, 24h)\\
+  LLFL, 소르본 누벨 대학교\\
+  {\small  · 언어학 전반 입문; 음성학 및 음운론.}}
+
+\cvrow{2024--25 · S1}{%
+  \textbf{어휘 의미론} (학부 3학년, 14h)\\
+  LLFL, 소르본 누벨 대학교\\
+  {\small  · 의미론적 창의성: 은유와 환유,
+  일탈과 어휘화.}}
+
+\cvsubsection{특별 초청 강의}
+
+\cvrow{2025 · 07}{%
+  \textbf{동문 토크: 연구자의 삶} (학부, 2h)\\
+  {\small SNU in Paris 하계 프로그램
+  (서울대학교 · 소르본 누벨 대학교)}}
+
+\cvrow{2023 · 10}{%
+  \textbf{사회적 표상에서의 담화 분석 (Ecrifore)}
+  (석사 1학년, 2h)\\ 파리 낭테르 대학교\\
+  {\small  · 비판적 담화 분석 \& 체계-기능 언어학.}}
+
+\cvsubsection{연구인턴 지도}
+
+\cvrow{2026}{%
+  \textbf{석사 2학년(M2) 연구인턴 공동지도}\\
+  소르본 누벨 대학교, POLAR 연구 프로젝트\\
+  {\small  · 언어학 분야 석사과정 연구인턴의 연구 수행 및 방법론적 지도.}}
+
+\cvsubsection{조교}
+
+\cvrow{2021 -- 2022}{%
+  \textbf{컴퓨터 과학 입문} (학부 1학년, 60h)\\
+  자유전공학부, 서울대학교\\
+  {\small  · Python 실습 세션 · Q\&A 세션.}}
+
+\cvrow{2018 -- 2019}{%
+  \textbf{삶과 인간} (학부 1학년, 15h)\\
+  인문대학, 서울대학교\\
+  {\small  · 프로그램 기획 및 조정.}}
+
+\cvrow{2018 -- 2019}{%
+  \textbf{Ad Fontes} (평생교육, 60h)\\
+  인문대학, 서울대학교\\
+  {\small  · 기업 임원 대상 인문학 프로그램 담당.}}
+
+% ── 장학금 및 수상 ────────────────────────────────────────────────────────
+\cvsection{장학금 및 수상}
+
+\cvitem{2023 -- 2026}{박사 장학금 · \textit{포니정재단} (2023년 9월 -- 2026년 8월)}
+\cvitem{2021 -- 2022}{석사 장학금 · \textit{우산재단} (2021년 1월 -- 2022년 12월)}
+\cvitem{2020 -- 2022}{교육·연구 장학금 · 서울대학교 (4학기)}
+\cvitem{2014 -- 2020}{성적 우수 장학금 · 서울대학교 (5학기)}
+
+% ── 국제 선발 프로그램 ────────────────────────────────────────────────────
+\cvsection{국제 선발 프로그램}
+
+\cvrow{2020 · 01}{%
+  \textbf{SNU in Creative California} — 동계 프로그램\\
+  {\small 서울대학교 · UC Irvine Paul Merage School of Business\\
+   · 캘리포니아 창의 산업(비디오 게임, 음악, 영화, 예술) 분야 국제 선발 프로그램
+  — 공동 비즈니스 프로젝트, 현장 방문, 학점 인정 포함.}}
+
+\cvrow{2019 · 07}{%
+  \textbf{SNU in Paris} — 하계 프로그램\\
+  {\small 서울대학교 · Université PSL\\
+   · 인문학, 사회과학, 프랑스 문화 분야 국제 선발 프로그램
+  — 학술 강의, 파리 문화 체험, 학점 인정 결합.}}
+
+% ── 기타 활동 ─────────────────────────────────────────────────────────────
+\cvsection{기타 활동}
+
+\cvrow{2023 · 01}{%
+  \textbf{연구 방문}
+  · ATILF (UMR~7118, CNRS -- 로렌 대학교), 낭시\\
+  {\small  · Alain Polguère 교수 지도하 어휘론 학술 활동 (세미나, 연구 회의, 강의).}}
+
+\cvrow{2014 -- 2015}{%
+  \textbf{직장 내 괴롭힘 자원봉사 연구원}\\
+  {\small 공익인권법재단 공감 (KLPH)\\
+   · 직장 내 괴롭힘 연구 · 프랑스 법령 번역.}}
+
+% ── 역량 및 도구 ──────────────────────────────────────────────────────────
+\cvsection{역량 및 도구}
+
+\cvitem{언어}{한국어 \textit{(모어)} · 프랑스어 \textit{(C2)} · 영어 \textit{(C2)}}
+\cvitem{코퍼스 \& 자연어처리}{TXM · Iramuteq · SketchEngine · Python}
+
+% ── 추가 교육 ─────────────────────────────────────────────────────────────
+\cvsection{추가 교육}
+
+\cvrow{2024 · 06}{%
+  \textbf{봄 학교 「Sens de l'écologie, écologie du sens」}\\
+  {\small  PLURIELLES (UR~24142), ICAR (UMR~5191) · 리옹 · 적극 참여.}}
+
+\cvrow{2023 · 08}{%
+  \textbf{「Climate Reality Leadership」} \\
+  The Climate Reality Project · 서울}
+
+\cvrow{2021 · 08}{%
+  \textbf{「데이터 사이언스 부트 캠프」} \\
+  서울대학교 데이터사이언스대학원\\
+  {\small   · 과목: 「데이터 과학을 위한 수학」,
+  「데이터 과학을 위한 프로그래밍」.}}
+
+\cvrow{2019 · 08}{%
+  \textbf{언어학 여름 학교}
+  \\ 한국언어학회 · 서울\\
+  {\small   · 과목: 「언어 통계학」, 「의미론과 화용론」,
+  「심리언어학」.}}
+
+\cvrow{2019 · 09}{%
+  \textbf{「텐서플로 개발자」}
+\\   서울대학교 평생교육원}
+
+\cvrow{2019 · 06}{%
+  \textbf{「Python과 데이터 분석」}
+\\   서울대학교 평생교육원}
+
+\cvrow{2019 · 05}{%
+  \textbf{「머신러닝과 딥러닝을 위한 Python 입문」}\\
+  {\small   서울대학교 교수학습개발센터}}
+
+\end{document}
